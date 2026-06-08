@@ -234,7 +234,7 @@
     var ids=[c.aff].concat(b.aff).filter(function(v,i,a){return a.indexOf(v)===i;}).slice(0,3);
     var al=document.getElementById('affList');al.innerHTML='';
     ids.forEach(function(id){var bk=affBuckets[id];var li=document.createElement('li');
-      li.innerHTML='<div class="al-main"><span class="al-label">'+bk.label+'</span><span class="al-ex">'+bk.ex+'</span></div><span class="pr">リンク予定</span>';
+      li.innerHTML='<div class="al-main"><span class="al-label">'+bk.label+'</span></div><span class="pr">リンク予定</span>';
       al.appendChild(li);});
     img.style.display='block';fb.style.display='none';img.alt=name;
     img.onerror=function(){img.style.display='none';fb.style.display='flex';fb.textContent=name;};
