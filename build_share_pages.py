@@ -7,8 +7,10 @@ import os, re
 BASE = 'https://mamoridori.com'
 BIRDS_JA = {'condle': '鷹', 'canaly': 'カナリア', 'owl': 'フクロウ', 'peac': '孔雀', 'phenix': '鳳凰'}
 BIRDS_ZH = {'condle': '老鷹', 'canaly': '金絲雀', 'owl': '貓頭鷹', 'peac': '孔雀', 'phenix': '鳳凰'}
+BIRDS_EN = {'condle': 'Hawk', 'canaly': 'Canary', 'owl': 'Owl', 'peac': 'Peacock', 'phenix': 'Phoenix'}
 COLORS_JA = {'W': '白', 'R': '赤', 'Y': '黄色', 'B': '青'}
 COLORS_ZH = {'W': '白', 'R': '紅', 'Y': '黃', 'B': '藍'}
+COLORS_EN = {'W': 'White', 'R': 'Red', 'Y': 'Yellow', 'B': 'Blue'}
 RIMG = {'condle': 'R-Hawk', 'canaly': 'R-canary', 'owl': 'R-owl', 'peac': 'R-peacok', 'phenix': 'R-phenix'}
 
 
@@ -22,9 +24,12 @@ def make(src_path, out_dir, url_prefix, lang):
             if lang == 'ja':
                 name = f'{COLORS_JA[ck]}の{BIRDS_JA[bk]}'
                 title = f'私の守護鳥は「{name}」でした｜守護鳥占い'
-            else:
+            elif lang == 'zh':
                 name = f'{COLORS_ZH[ck]}色{BIRDS_ZH[bk]}'
                 title = f'我的守護鳥是「{name}」｜守護鳥占卜'
+            else:
+                name = f'{COLORS_EN[ck]} {BIRDS_EN[bk]}'
+                title = f'My guardian bird is the \u201c{name}\u201d | Mamoridori'
             img = f'{BASE}/images/{RIMG[bk]}-{ck}.webp'
             page_url = f'{BASE}{url_prefix}/{key}.html'
             # OGP 差し替え
@@ -47,3 +52,4 @@ def make(src_path, out_dir, url_prefix, lang):
 
 make('index.html', 'share', '/share', 'ja')
 make('mdn/index.html', 'mdn/share', '/mdn/share', 'zh')
+make('en/index.html', 'en/share', '/en/share', 'en')
