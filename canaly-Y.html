@@ -5,17 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>守護鳥占い｜生年月日とお名前で占う、あなたを守護する鳥</title>
 <meta name="description" content="生年月日と名前から、あなたを守護する鳥がわかる無料診断。金運・仕事・恋愛の3編で、あなたの本質をマヤ暦をもとに読み解きます。">
-<link rel="canonical" href="https://mamoridori.com/">
-<link rel="alternate" hreflang="ja" href="https://mamoridori.com/">
-<link rel="alternate" hreflang="zh-Hant" href="https://mamoridori.com/mdn/">
-<link rel="alternate" hreflang="en" href="https://mamoridori.com/en/">
+<meta name="robots" content="noindex">
 <!-- OGP / Xカード（トップページ既定） -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="守護鳥占い">
-<meta property="og:title" content="守護鳥占い｜生年月日とお名前で占う、あなたを守護する鳥">
+<meta property="og:title" content="私の守護鳥は「黄色のカナリア」でした｜守護鳥占い">
 <meta property="og:description" content="生年月日と名前から、あなたを守護する鳥がわかる無料診断。金運・仕事・恋愛の3編で、あなたの本質をマヤ暦をもとに読み解きます。">
-<meta property="og:url" content="https://mamoridori.com/">
-<meta property="og:image" content="https://mamoridori.com/images/top.webp">
+<meta property="og:url" content="https://mamoridori.com/share/canaly-Y.html">
+<meta property="og:image" content="https://mamoridori.com/images/R-canary-Y.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@mamoridori_jp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -140,7 +137,7 @@ html,body{background:var(--cream);color:var(--ink);font-family:"Zen Kaku Gothic 
 <div class="stage"><div class="frame">
 
 <section id="top" class="view active">
-<div class="hero"><img src="images/top.webp" alt="守護鳥占い"><div class="veil"></div></div>
+<div class="hero"><img src="/images/top.webp" alt="守護鳥占い"><div class="veil"></div></div>
 <div class="lede">
 <p>マヤ暦×お名前をもとにあなたの奥に眠る本質をそっと読み解きます<br>どうか、あなたの<ruby>守護鳥<rt>まもりどり</rt></ruby>が、よき道へと導いてくれますように……</p>
 </div>
@@ -212,7 +209,7 @@ html,body{background:var(--cream);color:var(--ink);font-family:"Zen Kaku Gothic 
 </ul>
 </div>
 
-<div class="foot">&copy; 守護鳥占い ／ <a onclick="show('contact')">お問い合わせ</a>・<a href="about.html">運営者情報</a>・<a href="privacy.html">プライバシーポリシー</a><br><a href="https://note.com/mamoridori" target="_blank" rel="noopener">公式note</a>・<a href="https://x.com/mamoridori_jp" target="_blank" rel="noopener">公式X</a>・<a href="https://www.instagram.com/mamoridori_official/" target="_blank" rel="noopener">Instagram</a>・<a href="https://www.threads.com/@mamoridori_official" target="_blank" rel="noopener">Threads</a><br><a href="/en/">English</a>・<a href="/mdn/">繁體中文</a></div>
+<div class="foot">&copy; 守護鳥占い ／ <a onclick="show('contact')">お問い合わせ</a>・<a href="/about.html">運営者情報</a>・<a href="/privacy.html">プライバシーポリシー</a><br><a href="https://note.com/mamoridori" target="_blank" rel="noopener">公式note</a>・<a href="https://x.com/mamoridori_jp" target="_blank" rel="noopener">公式X</a>・<a href="https://www.instagram.com/mamoridori_official/" target="_blank" rel="noopener">Instagram</a>・<a href="https://www.threads.com/@mamoridori_official" target="_blank" rel="noopener">Threads</a><br><a href="/en/">English</a>・<a href="/mdn/">繁體中文</a></div>
 </section>
 
 <section id="result" class="view">
@@ -388,7 +385,7 @@ if(prods.length){prods.forEach(function(p){var li=document.createElement('li');v
 var img=document.getElementById('birdImg'),fb=document.getElementById('birdFallback');
 img.style.display='block';fb.style.display='none';img.alt=name;
 img.onerror=function(){img.style.display='none';fb.style.display='flex';fb.textContent=name;};
-img.src='images/'+cur.b+'-'+cur.c+'.webp';
+img.src='/images/'+cur.b+'-'+cur.c+'.webp';
 document.querySelectorAll('.chip').forEach(function(ch){ch.classList.remove('on');});
 var sel=document.querySelector('.chip[data-id="'+cur.b+'-'+cur.c+'"]');if(sel)sel.classList.add('on');
 document.querySelectorAll('.edtab').forEach(function(t){t.classList.toggle('on',t.getAttribute('data-ed')===cur.ed);});
@@ -422,7 +419,7 @@ for(var d=1;d<=31;d++){var od=document.createElement('option');od.value=d;od.tex
 // シェアURL（?r=鳥-色&ed=テーマ）から開かれた場合は結果を直接表示
 (function(){
 var q=new URLSearchParams(location.search);
-var r=q.get('r'),ed=q.get('ed');
+var r=q.get('r')||'canaly-Y',ed=q.get('ed');
 if(ed&&editions[ed])cur.ed=ed;
 if(r){var p=r.split('-');if(p.length===2&&editions.money.birds[p[0]]&&colorsMeta.some(function(c){return c.key===p[1];})){cur.b=p[0];cur.c=p[1];render();show('result');return;}}
 render();
