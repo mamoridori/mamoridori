@@ -5,13 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mamoridori – Guardian Bird Reading | Find the bird that watches over you</title>
 <meta name="description" content="A free reading that reveals your guardian bird from your birth date and name. Based on the Maya calendar, it explores your true nature through Wealth, Career and Love.">
-<meta name="robots" content="noindex">
+<link rel="canonical" href="https://mamoridori.com/en/">
+<link rel="alternate" hreflang="ja" href="https://mamoridori.com/">
+<link rel="alternate" hreflang="zh-Hant" href="https://mamoridori.com/mdn/">
+<link rel="alternate" hreflang="en" href="https://mamoridori.com/en/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mamoridori – Guardian Bird Reading">
-<meta property="og:title" content="My guardian bird is the “Yellow Hawk” | Mamoridori">
+<meta property="og:title" content="Mamoridori – Guardian Bird Reading | Find the bird that watches over you">
 <meta property="og:description" content="A free reading that reveals your guardian bird from your birth date and name. Based on the Maya calendar, it explores your true nature through Wealth, Career and Love.">
-<meta property="og:url" content="https://mamoridori.com/en/share/condle-Y.html">
-<meta property="og:image" content="https://mamoridori.com/images/R-Hawk-Y.webp">
+<meta property="og:url" content="https://mamoridori.com/en/">
+<meta property="og:image" content="https://mamoridori.com/images/top-en.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@mamoridori_jp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -318,12 +321,14 @@ color:{
 W:[
 {name:'White Jade Bracelet',url:'https://onelink.shein.com/38/5sbxqmtfewri',rec:'Carry a pure, protective charm on your wrist'},
 {name:'Pearl White Press-On Nails',url:'https://onelink.shein.com/38/5sbwji03rq6u',rec:'A serene glow for your fingertips'},
-{name:'White &amp; Gold Foil Press-On Nails',url:'https://onelink.shein.com/38/5sbuc11ag5y0',rec:'A touch of lucky gold on pure white'}
+{name:'White &amp; Gold Foil Press-On Nails',url:'https://onelink.shein.com/38/5sbuc11ag5y0',rec:'A touch of lucky gold on pure white'},
+{name:'White Phoenix Hair Clip',url:'https://onelink.shein.com/38/5sbvuia0dauc',rec:'Wings of rebirth for your hair'}
 ],
 B:[
 {name:'Turquoise Stone Necklace',url:'https://onelink.shein.com/38/5sbt48jlfmeb',rec:'A turquoise charm to clear your mind'},
 {name:'Blue Clear Gel Nails',url:'https://onelink.shein.com/38/5sbtf94t3cp2',rec:'A quiet shimmer at your fingertips'},
-{name:'Sapphire Blue Press-On Nails',url:'https://onelink.shein.com/38/5sqmbqj30so3',rec:'A deep blue to steady your spirit'}
+{name:'Sapphire Blue Press-On Nails',url:'https://onelink.shein.com/38/5sqmbqj30so3',rec:'A deep blue to steady your spirit'},
+{name:'Blue Phoenix Necklace',url:'https://onelink.shein.com/38/5sqxacplzuws',rec:'Let the blue phoenix guard your calm'}
 ],
 Y:[
 {name:'Citrine Bracelet',url:'https://onelink.shein.com/38/5sbs59pvjwua',rec:'Invite warm, abundant energy'},
@@ -332,7 +337,8 @@ Y:[
 {name:'Yellow Flower Earrings',url:'https://onelink.shein.com/38/5sqhqhowgrnr',rec:'Bloom with lucky yellow'}
 ],
 R:[
-{name:'Red Clear Gel Nails',url:'https://onelink.shein.com/38/5sbtte6s43rr',rec:'A passionate red to cheer you on'}
+{name:'Red Clear Gel Nails',url:'https://onelink.shein.com/38/5sbtte6s43rr',rec:'A passionate red to cheer you on'},
+{name:'Red Phoenix Kanzashi Hairpin Set',url:'https://onelink.shein.com/38/5sbw7625g2zt',rec:'Japanese-style flair for your updo'}
 ]
 },
 bird:{
@@ -346,7 +352,7 @@ peac:[
 ],
 canaly:[
 {name:'Yellow Bird T-Shirt',url:'https://onelink.shein.com/38/5sbwgdjcclmk',rec:'Wear your love of birds in lucky yellow'},
-{name:'William Morris Canary Cushion',url:'https://onelink.shein.com/38/5sqkzzz5yeq5',rec:'Surround yourself with the canary's world'},
+{name:'William Morris Canary Cushion',url:'https://onelink.shein.com/38/5sqkzzz5yeq5',rec:'Surround yourself with the canary\'s world'},
 {name:'Little Bird Poster',url:'https://onelink.shein.com/38/5sqijtafq4hi',rec:'A cheerful bird for your wall'},
 {name:'Bird-Shaped Silicone Mold',url:'https://onelink.shein.com/38/5sqk9sue3h8k',rec:'Craft little birds by hand'},
 {name:'Cute Oil Timer',url:'https://onelink.shein.com/38/5sqm048j4glu',rec:'Let time flow as beautifully as you do'}
@@ -370,7 +376,7 @@ common:[
 {name:'Birdcage Pen Case',url:'https://onelink.shein.com/38/5sqixkj6zwb5',rec:'Keep your tools in a lucky cage'},
 {name:'Birdcage Storage Rack',url:'https://onelink.shein.com/38/5sqj2g4xyo7b',rec:'A pretty perch for your things'},
 {name:'Budget Envelope Set',url:'https://onelink.shein.com/38/5sqj9epvb1ns',rec:'Tuck your savings safely away'},
-{name:'Feather Pierced Earrings',url:'https://onelink.shein.com/38/5sre7vcbngwo',rec:'Wear your guardian bird's feathers'}
+{name:'Feather Pierced Earrings',url:'https://onelink.shein.com/38/5sre7vcbngwo',rec:'Wear your guardian bird\'s feathers'}
 ]
 };
 var cur={ed:'money',b:'condle',c:'W',parity:null};
@@ -475,7 +481,7 @@ for(var d=1;d<=31;d++){var od=document.createElement('option');od.value=d;od.tex
 // Open a shared result directly (?r=bird-color&ed=theme)
 (function(){
 var q=new URLSearchParams(location.search);
-var r=q.get('r')||'condle-Y',ed=q.get('ed');
+var r=q.get('r'),ed=q.get('ed');
 if(ed&&editions[ed])cur.ed=ed;
 if(r){var p=r.split('-');if(p.length===2&&editions.money.birds[p[0]]&&colorsMeta.some(function(c){return c.key===p[1];})){cur.b=p[0];cur.c=p[1];render();show('result');return;}}
 render();
