@@ -199,7 +199,7 @@ function initDateDropdowns(){
   var dd = document.getElementById('dd');
 
   if (!yy || !mm || !dd) {
-    console.error('生年月日のselect要素が見つかりません');
+    console.warn('Date dropdown elements were not found.');
     return;
   }
 
@@ -207,9 +207,7 @@ function initDateDropdowns(){
   mm.innerHTML = '<option value="">--</option>';
   dd.innerHTML = '<option value="">--</option>';
 
-  var currentYear = new Date().getFullYear();
-
-  for (var y = currentYear; y >= 1920; y--) {
+  for (var y = 2026; y >= 1920; y--) {
     yy.insertAdjacentHTML('beforeend', '<option value="' + y + '">' + y + '</option>');
   }
 
@@ -221,7 +219,6 @@ function initDateDropdowns(){
     dd.insertAdjacentHTML('beforeend', '<option value="' + d + '">' + d + '</option>');
   }
 }
-
 initDateDropdowns();
 </script>
 
@@ -391,12 +388,12 @@ var birdEnglishNames={
 };
 var colorLetters={'W':'W','R':'R','Y':'Y','B':'B'};
 
+var resultBirdImageNames={canaly:'canary',condle:'Hawk',owl:'owi',peac:'peacok',phenix:'phenix'};
 function downloadResultImage(){
-if(!cur.b||!cur.c){alert('診断結果を先に表示してください。');return;}
-var birdEn=birdEnglishNames[cur.b];
-var colorLetter=cur.c;
-var imageName='R-'+birdEn+'-'+colorLetter+'.webp';
-var imageUrl=SITE_BASE+'/images/result/'+imageName;
+var birdName=resultBirdImageNames[cur.b];
+if(!birdName){return;}
+if(cur.b==='owl'&&cur.c==='W'){birdName='owl';}
+var imageUrl=SITE_BASE+'/images/result/R-'+birdName+'-'+cur.c+'.webp';
 window.open(imageUrl,'_blank');
 }
 
@@ -448,7 +445,7 @@ if(prods.length){prods.forEach(function(p){var li=document.createElement('li');v
 var img=document.getElementById('birdImg'),fb=document.getElementById('birdFallback');
 img.style.display='block';fb.style.display='none';img.alt=name;
 img.onerror=function(){img.style.display='none';fb.style.display='flex';fb.textContent=name;};
-img.src='images/result/R-'+birdEnglishNames[cur.b]+'-'+cur.c+'.webp';
+img.src='images/'+cur.b+'-'+cur.c+'.webp';
 document.querySelectorAll('.chip').forEach(function(ch){ch.classList.remove('on');});
 var sel=document.querySelector('.chip[data-id="'+cur.b+'-'+cur.c+'"]');if(sel)sel.classList.add('on');
 document.querySelectorAll('.edtab').forEach(function(t){t.classList.toggle('on',t.getAttribute('data-ed')===cur.ed);});
