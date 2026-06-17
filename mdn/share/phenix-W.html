@@ -454,8 +454,61 @@ document.querySelectorAll('.chip').forEach(function(ch){ch.classList.remove('on'
 var sel=document.querySelector('.chip[data-id="'+cur.b+'-'+cur.c+'"]');if(sel)sel.classList.add('on');
 document.querySelectorAll('.edtab').forEach(function(t){t.classList.toggle('on',t.getAttribute('data-ed')===cur.ed);});
 }
+function initDobSelects(){
+  var yy = document.getElementById('yy');
+  var mm = document.getElementById('mm');
+  var dd = document.getElementById('dd');
+
+  if(!yy || !mm || !dd){
+    console.warn('DOB selects not found');
+    return;
+  }
+
+  var currentYear = new Date().getFullYear();
+
+  yy.innerHTML = '<option value="">----</option>';
+  for(var y = currentYear; y >= 1920; y--){
+    var yo = document.createElement('option');
+    yo.value = String(y);
+    yo.textContent = String(y);
+    yy.appendChild(yo);
+  }
+
+  mm.innerHTML = '<option value="">--</option>';
+  for(var m = 1; m <= 12; m++){
+    var mo = document.createElement('option');
+    mo.value = String(m);
+    mo.textContent = String(m);
+    mm.appendChild(mo);
+  }
+
+  function rebuildDays(){
+    var prev = dd.value;
+    var y = parseInt(yy.value, 10);
+    var m = parseInt(mm.value, 10);
+    var lastDay = (y && m) ? new Date(y, m, 0).getDate() : 31;
+
+    dd.innerHTML = '<option value="">--</option>';
+    for(var d = 1; d <= lastDay; d++){
+      var doo = document.createElement('option');
+      doo.value = String(d);
+      doo.textContent = String(d);
+      dd.appendChild(doo);
+    }
+
+    if(prev && parseInt(prev, 10) <= lastDay){
+      dd.value = prev;
+    }
+  }
+
+  yy.addEventListener('change', rebuildDays);
+  mm.addEventListener('change', rebuildDays);
+  rebuildDays();
+}
+initDobSelects();
 ['edtabsTop','edtabsResult'].forEach(function(cid){
 var box=document.getElementById(cid);
+if(!box){return;}
 Object.keys(editions).forEach(function(ek){
 var t=document.createElement('div');t.className='edtab'+(ek===cur.ed?' on':'');t.textContent=editions[ek].label;t.setAttribute('data-ed',ek);
 t.onclick=function(){cur.ed=ek;render();};
@@ -463,6 +516,7 @@ box.appendChild(t);
 });
 });
 var picker=document.getElementById('picker');
+if(picker){
 birdsMeta.forEach(function(b){
 var row=document.createElement('div');row.className='brow';
 var label=document.createElement('div');label.className='bn';label.textContent=b.name;
@@ -470,13 +524,7 @@ var chips=document.createElement('div');chips.className='chips';
 colorsMeta.forEach(function(c){var chip=document.createElement('div');chip.className='chip';chip.style.background=c.hex;chip.title=c.name+'色'+b.name;chip.setAttribute('data-id',b.key+'-'+c.key);chip.onclick=function(){cur.b=b.key;cur.c=c.key;render();};chips.appendChild(chip);});
 row.appendChild(label);row.appendChild(chips);picker.appendChild(row);
 });
-var yy=document.getElementById('yy'),mm=document.getElementById('mm'),dd=document.getElementById('dd');
-var o0=document.createElement('option');o0.value='';o0.textContent='----';yy.appendChild(o0);
-for(var y=2026;y>=1920;y--){var o=document.createElement('option');o.value=y;o.textContent=y;yy.appendChild(o);}
-var m0=document.createElement('option');m0.value='';m0.textContent='--';mm.appendChild(m0);
-for(var m=1;m<=12;m++){var om=document.createElement('option');om.value=m;om.textContent=m;mm.appendChild(om);}
-var d0=document.createElement('option');d0.value='';d0.textContent='--';dd.appendChild(d0);
-for(var d=1;d<=31;d++){var od=document.createElement('option');od.value=d;od.textContent=d;dd.appendChild(od);}
+}
 // 分享連結（?r=鳥-色&ed=主題）直接開啟結果
 (function(){
 var q=new URLSearchParams(location.search);
