@@ -12,7 +12,7 @@
 <meta property="og:title" content="私の守護鳥は「青のカナリア」でした｜守護鳥占い">
 <meta property="og:description" content="生年月日と名前から、あなたを守護する鳥がわかる無料診断。金運・仕事・恋愛の3編で、あなたの本質をマヤ暦をもとに読み解きます。">
 <meta property="og:url" content="https://mamoridori.com/share/canaly-B.html">
-<meta property="og:image" content="https://mamoridori.com/images/result/R-owl-Y.webp">
+<meta property="og:image" content="https://mamoridori.com/images/owl-Y.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@mamoridori_jp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -330,13 +330,6 @@ var cur={ed:'money',b:'condle',c:'W',parity:null};
 
 
 // ===== 結果画像ダウンロード（ポップアップで表示） =====
-var birdEnglishNames={
-'canaly':'canary',
-'condle':'Hawk',
-'owl':'owl',
-'peac':'peacock',
-'phenix':'phenix'
-};
 function downloadResultImage(){
 if(!cur.b||!cur.c){alert('診断結果を先に表示してください。');return;}
 var birdEn=birdEnglishNames[cur.b];
@@ -346,6 +339,15 @@ var imageUrl=SITE_BASE+'/images/result/'+imageName;
 window.open(imageUrl,'_blank');
 }
 
+// ===== 結果を画像で保存 =====
+var resultImageNames={'canaly-W':'canary-W','canaly-R':'canary-R','canaly-Y':'canary-Y','canaly-B':'canary-B','condle-W':'Hawk-W','condle-R':'Hawk-R','condle-Y':'Hawk-Y','condle-B':'Hawk-B','owl-W':'owl-W','owl-R':'owi-R','owl-Y':'owi-Y','owl-B':'owi-B','peac-W':'peacok-W','peac-R':'peacok-R','peac-Y':'peacok-Y','peac-B':'peacok-B','phenix-W':'phenix-W','phenix-R':'phenix-R','phenix-Y':'phenix-Y','phenix-B':'phenix-B'};
+function downloadResultImage(){
+var imageName=resultImageNames[cur.b+'-'+cur.c];
+if(imageName){
+var imageUrl=SITE_BASE+'/images/result/R-'+imageName+'.webp';
+window.open(imageUrl,'_blank');
+}
+}
 // ===== Xシェア =====
 var SITE_BASE='https://mamoridori.com';
 // 結果ポスト用画像（R-～.webp）の対応はshare/内の各ページに記載しております
@@ -406,7 +408,7 @@ if(prods.length){prods.forEach(function(p){var li=document.createElement('li');v
 var img=document.getElementById('birdImg'),fb=document.getElementById('birdFallback');
 img.style.display='block';fb.style.display='none';img.alt=name;
 img.onerror=function(){img.style.display='none';fb.style.display='flex';fb.textContent=name;};
-img.src='/images/result/R-'+birdEnglishNames[cur.b]+'-'+cur.c+'.webp';
+img.src='/images/'+cur.b+'-'+cur.c+'.webp';
 document.querySelectorAll('.chip').forEach(function(ch){ch.classList.remove('on');});
 var sel=document.querySelector('.chip[data-id="'+cur.b+'-'+cur.c+'"]');if(sel)sel.classList.add('on');
 document.querySelectorAll('.edtab').forEach(function(t){t.classList.toggle('on',t.getAttribute('data-ed')===cur.ed);});
