@@ -9,9 +9,9 @@
 <!-- OGP / Xカード（トップページ既定） -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="守護鳥占い">
-<meta property="og:title" content="私の守護鳥は「青のカナリア」でした｜守護鳥占い">
+<meta property="og:title" content="Mamoridori | owl-Y">
 <meta property="og:description" content="生年月日と名前から、あなたを守護する鳥がわかる無料診断。金運・仕事・恋愛の3編で、あなたの本質をマヤ暦をもとに読み解きます。">
-<meta property="og:url" content="https://mamoridori.com/share/canaly-B.html">
+<meta property="og:url" content="https://mamoridori.com/share/owl-Y.html">
 <meta property="og:image" content="https://mamoridori.com/images/owl-Y.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@mamoridori_jp">
@@ -328,28 +328,15 @@ var commonAff={"html": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4B5PG3+1824BE+
 var compareAff={"money": {"html": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4B5PG3+152YAI+48YY+BYT9E\" rel=\"nofollow\">復縁相談で歴代２位を記録！2021注目の電話占い【初回無料】</a>\n<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www18.a8.net/0.gif?a8mat=4B5PG3+152YAI+48YY+BYT9E\" alt=\"\">", "rec": "まずは無料で、占いを試してみたいあなたへ", "note": "比較用"}, "work": {"html": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4B5PG3+12P7VE+48YY+5YJRM\" rel=\"nofollow\">電話占いComet</a>\n<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www11.a8.net/0.gif?a8mat=4B5PG3+12P7VE+48YY+5YJRM\" alt=\"\">", "rec": "気軽に、占い師の声を聴いてみたいあなたへ", "note": "比較用"}, "love": {"html": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4B5PG3+13W32Y+3SKE+5ZEMQ\" rel=\"nofollow\">当たる電話占いが3回まで無料で！ <br>\n【霊感霊視の恋愛応援スペーシア】</a>\n\n<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www19.a8.net/0.gif?a8mat=4B5PG3+13W32Y+3SKE+5ZEMQ\" alt=\"\">", "rec": "恋の答えを、無料で確かめたいあなたへ", "note": "比較用"}};
 var cur={ed:'money',b:'condle',c:'W',parity:null};
 
-
-// ===== 結果画像ダウンロード（ポップアップで表示） =====
-function downloadResultImage(){
-if(!cur.b||!cur.c){alert('診断結果を先に表示してください。');return;}
-var birdEn=birdEnglishNames[cur.b];
-var colorLetter=cur.c;
-var imageName='R-'+birdEn+'-'+colorLetter+'.webp';
-var imageUrl=SITE_BASE+'/images/result/'+imageName;
-window.open(imageUrl,'_blank');
-}
-
-// ===== 結果を画像で保存 =====
-var resultImageNames={'canaly-W':'canary-W','canaly-R':'canary-R','canaly-Y':'canary-Y','canaly-B':'canary-B','condle-W':'Hawk-W','condle-R':'Hawk-R','condle-Y':'Hawk-Y','condle-B':'Hawk-B','owl-W':'owl-W','owl-R':'owi-R','owl-Y':'owi-Y','owl-B':'owi-B','peac-W':'peacok-W','peac-R':'peacok-R','peac-Y':'peacok-Y','peac-B':'peacok-B','phenix-W':'phenix-W','phenix-R':'phenix-R','phenix-Y':'phenix-Y','phenix-B':'phenix-B'};
-function downloadResultImage(){
-var imageName=resultImageNames[cur.b+'-'+cur.c];
-if(imageName){
-var imageUrl=SITE_BASE+'/images/result/R-'+imageName+'.webp';
-window.open(imageUrl,'_blank');
-}
-}
-// ===== Xシェア =====
 var SITE_BASE='https://mamoridori.com';
+var resultBirdImageNames={canaly:'canary',condle:'Hawk',owl:'owi',peac:'peacok',phenix:'phenix'};
+function downloadResultImage(){
+var birdName=resultBirdImageNames[cur.b];
+if(!birdName){return;}
+if(cur.b==='owl'&&cur.c==='W'){birdName='owl';}
+var imageUrl=SITE_BASE+'/images/result/R-'+birdName+'-'+cur.c+'.webp';
+window.open(imageUrl,'_blank');
+}
 // 結果ポスト用画像（R-～.webp）の対応はshare/内の各ページに記載しております
 function shareX(){
 var bMeta=birdsMeta.filter(function(x){return x.key===cur.b;})[0];
@@ -432,17 +419,37 @@ colorsMeta.forEach(function(c){var chip=document.createElement('div');chip.class
 row.appendChild(label);row.appendChild(chips);picker.appendChild(row);
 });
 // date dropdowns
-var yy=document.getElementById('yy'),mm=document.getElementById('mm'),dd=document.getElementById('dd');
-var o0=document.createElement('option');o0.value='';o0.textContent='----';yy.appendChild(o0);
-for(var y=2026;y>=1920;y--){var o=document.createElement('option');o.value=y;o.textContent=y;yy.appendChild(o);}
-var m0=document.createElement('option');m0.value='';m0.textContent='--';mm.appendChild(m0);
-for(var m=1;m<=12;m++){var om=document.createElement('option');om.value=m;om.textContent=m;mm.appendChild(om);}
-var d0=document.createElement('option');d0.value='';d0.textContent='--';dd.appendChild(d0);
-for(var d=1;d<=31;d++){var od=document.createElement('option');od.value=d;od.textContent=d;dd.appendChild(od);}
+function initDateDropdowns(){
+  var yy = document.getElementById('yy');
+  var mm = document.getElementById('mm');
+  var dd = document.getElementById('dd');
+
+  if (!yy || !mm || !dd) {
+    console.warn('Date dropdown elements were not found.');
+    return;
+  }
+
+  yy.innerHTML = '<option value="">----</option>';
+  mm.innerHTML = '<option value="">--</option>';
+  dd.innerHTML = '<option value="">--</option>';
+
+  for (var y = 2026; y >= 1920; y--) {
+    yy.insertAdjacentHTML('beforeend', '<option value="' + y + '">' + y + '</option>');
+  }
+
+  for (var m = 1; m <= 12; m++) {
+    mm.insertAdjacentHTML('beforeend', '<option value="' + m + '">' + m + '</option>');
+  }
+
+  for (var d = 1; d <= 31; d++) {
+    dd.insertAdjacentHTML('beforeend', '<option value="' + d + '">' + d + '</option>');
+  }
+}
+initDateDropdowns();
 // シェアURL（?r=鳥-色&ed=テーマ）から開かれた場合は結果を直接表示
 (function(){
 var q=new URLSearchParams(location.search);
-var r=q.get('r')||'canaly-B',ed=q.get('ed');
+var r=q.get('r')||'owl-Y',ed=q.get('ed');
 if(ed&&editions[ed])cur.ed=ed;
 if(r){var p=r.split('-');if(p.length===2&&editions.money.birds[p[0]]&&colorsMeta.some(function(c){return c.key===p[1];})){cur.b=p[0];cur.c=p[1];render();show('result');return;}}
 render();
