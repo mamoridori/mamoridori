@@ -410,7 +410,8 @@ var modal=document.getElementById('resultImageModal');
 var img=document.getElementById('resultImageModalImg');
 if(!modal||!img||!popBirdNames[cur.b]){return;}
 img.alt=cMeta.name+' '+bMeta.name;
-img.src='/images/pop-mdn/'+popBirdNames[cur.b]+'-'+cur.c+'.webp';
+var imageBase=(location.protocol==='file:')?'../images/pop-mdn/':'/images/pop-mdn/';
+img.src=imageBase+popBirdNames[cur.b]+'-'+cur.c+'.webp';
 modal.classList.add('open');
 modal.setAttribute('aria-hidden','false');
 }
