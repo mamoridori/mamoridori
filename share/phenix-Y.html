@@ -9,10 +9,10 @@
 <!-- OGP / Xカード（トップページ既定） -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="守護鳥占い">
-<meta property="og:title" content="私の守護鳥は「黄色の鳳凰」でした｜守護鳥占い">
+<meta property="og:title" content="私の守護鳥は「青のカナリア」でした｜守護鳥占い">
 <meta property="og:description" content="生年月日と名前から、あなたを守護する鳥がわかる無料診断。金運・仕事・恋愛の3編で、あなたの本質をマヤ暦をもとに読み解きます。">
-<meta property="og:url" content="https://mamoridori.com/share/phenix-Y.html">
-<meta property="og:image" content="https://mamoridori.com/images/R-phenix-Y.webp">
+<meta property="og:url" content="https://mamoridori.com/share/canaly-B.html">
+<meta property="og:image" content="https://mamoridori.com/images/R-canary-B.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@mamoridori_jp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,6 +131,7 @@ html,body{background:var(--cream);color:var(--ink);font-family:"Zen Kaku Gothic 
 .form-embed{margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid #F0E6D0;background:#fff;}
 .form-embed iframe{width:100%;height:720px;border:none;display:block;}
 .form-link{display:block;text-align:center;margin-top:14px;font-size:12px;color:var(--gold-deep);letter-spacing:.06em;}
+.note-hub{margin:24px 22px 0;text-align:center;}.note-hub-link{display:inline-block;background:linear-gradient(180deg,#E8DCC8,#D9CBAB);border:1px solid var(--gold-hair);border-radius:16px;padding:16px 24px;font-family:"Shippori Mincho B1",serif;font-size:14px;color:var(--gold-deep);letter-spacing:.06em;text-decoration:none;transition:.2s;box-shadow:0 8px 20px -10px var(--shadow);}.note-hub-link:hover{text-decoration:underline;}.note-hub-link:active{transform:translateY(2px);}
 </style>
 </head>
 <body>
@@ -229,6 +230,8 @@ html,body{background:var(--cream);color:var(--ink);font-family:"Zen Kaku Gothic 
 <div class="sec"><h2>あなたと相性のよいサービス</h2><ul class="afflist" id="affList"></ul>
 <p class="pr-note">&#8251;掲載は広告（PR）を含みます。本診断は娯楽であり、専門的な助言ではありません。ご利用はご自身のご判断でお願いいたします。</p></div>
 <div class="share"><button class="solid">結果を画像で保存</button><button onclick="shareX()">Xでシェアする</button></div>
+
+<div class="note-hub"><a href="https://note.com/mamoridori/n/nc8756baafff5" target="_blank" rel="noopener" class="note-hub-link">より詳しい結果はこちら →&nbsp;noteで詳しく読む</a></div>
 </div>
 
 <div class="sns">
@@ -419,7 +422,7 @@ for(var d=1;d<=31;d++){var od=document.createElement('option');od.value=d;od.tex
 // シェアURL（?r=鳥-色&ed=テーマ）から開かれた場合は結果を直接表示
 (function(){
 var q=new URLSearchParams(location.search);
-var r=q.get('r')||'phenix-Y',ed=q.get('ed');
+var r=q.get('r')||'canaly-B',ed=q.get('ed');
 if(ed&&editions[ed])cur.ed=ed;
 if(r){var p=r.split('-');if(p.length===2&&editions.money.birds[p[0]]&&colorsMeta.some(function(c){return c.key===p[1];})){cur.b=p[0];cur.c=p[1];render();show('result');return;}}
 render();
