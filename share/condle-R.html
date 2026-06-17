@@ -12,7 +12,7 @@
 <meta property="og:title" content="私の守護鳥は「青のカナリア」でした｜守護鳥占い">
 <meta property="og:description" content="生年月日と名前から、あなたを守護する鳥がわかる無料診断。金運・仕事・恋愛の3編で、あなたの本質をマヤ暦をもとに読み解きます。">
 <meta property="og:url" content="https://mamoridori.com/share/canaly-B.html">
-<meta property="og:image" content="https://mamoridori.com/images/R-canary-B.webp">
+<meta property="og:image" content="https://mamoridori.com/images/result/R-Hawk-R.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@mamoridori_jp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -406,7 +406,7 @@ if(prods.length){prods.forEach(function(p){var li=document.createElement('li');v
 var img=document.getElementById('birdImg'),fb=document.getElementById('birdFallback');
 img.style.display='block';fb.style.display='none';img.alt=name;
 img.onerror=function(){img.style.display='none';fb.style.display='flex';fb.textContent=name;};
-img.src='/images/'+cur.b+'-'+cur.c+'.webp';
+img.src='/images/result/R-'+birdEnglishNames[cur.b]+'-'+cur.c+'.webp';
 document.querySelectorAll('.chip').forEach(function(ch){ch.classList.remove('on');});
 var sel=document.querySelector('.chip[data-id="'+cur.b+'-'+cur.c+'"]');if(sel)sel.classList.add('on');
 document.querySelectorAll('.edtab').forEach(function(t){t.classList.toggle('on',t.getAttribute('data-ed')===cur.ed);});
