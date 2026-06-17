@@ -229,7 +229,7 @@ html,body{background:var(--cream);color:var(--ink);font-family:"Zen Kaku Gothic 
 <div class="sec"><h2 id="growTitle"></h2><p id="grow"></p></div>
 <div class="sec"><h2>あなたと相性のよいサービス</h2><ul class="afflist" id="affList"></ul>
 <p class="pr-note">&#8251;掲載は広告（PR）を含みます。本診断は娯楽であり、専門的な助言ではありません。ご利用はご自身のご判断でお願いいたします。</p></div>
-<div class="share"><button class="solid">結果を画像で保存</button><button onclick="shareX()">Xでシェアする</button></div>
+<div class="share"><button class="solid" onclick="downloadResultImage()">結果を画像で保存</button><button onclick="shareX()">Xでシェアする</button></div>
 
 <div class="note-hub"><a href="https://note.com/mamoridori/n/n13c3204527d2" target="_blank" rel="noopener" class="note-hub-link">より詳しい結果はこちら →&nbsp;noteで詳しく読む</a></div>
 </div>
@@ -327,6 +327,36 @@ var colorAff={"W": [{"html": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4B5R06+F
 var commonAff={"html": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4B5PG3+1824BE+2H0Q+U6W36\" rel=\"nofollow\">変わりゆく価値観に寄り添い、最善の答えに導きます。<br>\n【電話占い】するなら、ヴェルニ</a>\n<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www18.a8.net/0.gif?a8mat=4B5PG3+1824BE+2H0Q+U6W36\" alt=\"\">", "rec": "迷いを、確かな声に聴いてほしいあなたへ", "note": ""};
 var compareAff={"money": {"html": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4B5PG3+152YAI+48YY+BYT9E\" rel=\"nofollow\">復縁相談で歴代２位を記録！2021注目の電話占い【初回無料】</a>\n<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www18.a8.net/0.gif?a8mat=4B5PG3+152YAI+48YY+BYT9E\" alt=\"\">", "rec": "まずは無料で、占いを試してみたいあなたへ", "note": "比較用"}, "work": {"html": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4B5PG3+12P7VE+48YY+5YJRM\" rel=\"nofollow\">電話占いComet</a>\n<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www11.a8.net/0.gif?a8mat=4B5PG3+12P7VE+48YY+5YJRM\" alt=\"\">", "rec": "気軽に、占い師の声を聴いてみたいあなたへ", "note": "比較用"}, "love": {"html": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4B5PG3+13W32Y+3SKE+5ZEMQ\" rel=\"nofollow\">当たる電話占いが3回まで無料で！ <br>\n【霊感霊視の恋愛応援スペーシア】</a>\n\n<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www19.a8.net/0.gif?a8mat=4B5PG3+13W32Y+3SKE+5ZEMQ\" alt=\"\">", "rec": "恋の答えを、無料で確かめたいあなたへ", "note": "比較用"}};
 var cur={ed:'money',b:'condle',c:'W',parity:null};
+
+
+// ===== 結果画像ダウンロード =====
+var birdEnglishNames={
+'canaly':'Canary',
+'condle':'Hawk',
+'owl':'Owl',
+'peac':'Peacock',
+'phenix':'Phoenix'
+};
+function downloadResultImage(){
+if(!cur.b||!cur.c){alert('診断結果を先に表示してください。');return;}
+var birdEn=birdEnglishNames[cur.b];
+var colorLetter=cur.c;
+var imageName='R-'+birdEn+'-'+colorLetter+'.webp';
+var imageUrl=SITE_BASE+'/images/result/'+imageName;
+fetch(imageUrl)
+.then(function(res){if(!res.ok)throw new Error('画像が見つかりません');return res.blob();})
+.then(function(blob){
+var url=URL.createObjectURL(blob);
+var link=document.createElement('a');
+link.href=url;
+link.download=imageName;
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+URL.revokeObjectURL(url);
+})
+.catch(function(err){alert('画像のダウンロードに失敗しました。\n'+err.message);});
+}
 
 // ===== Xシェア =====
 var SITE_BASE='https://mamoridori.com';
