@@ -417,6 +417,19 @@ var li=document.createElement('li');
 li.innerHTML='<span style="font-family:\'Shippori Mincho B1\',serif;font-size:12px;letter-spacing:.14em;color:var(--gold-deep);">'+t+'</span>';
 return li;
 }
+function downloadResultImage(){
+if(!cur.b||!cur.c){alert('Please complete the divination first.');return;}
+var birdEn=birdEnglishNames[cur.b];
+var colorLetter=cur.c;
+var imageName=birdEn+'-'+colorLetter+'.webp';
+var imageUrl=SITE_BASE+'/images/pop-en/'+imageName;
+var modalImg=document.getElementById('modalImage');
+modalImg.src=imageUrl;
+document.getElementById('modalOverlay').classList.add('active');
+}
+function closeModal(){
+document.getElementById('modalOverlay').classList.remove('active');
+}
 function render(){
 var ed=editions[cur.ed];
 var bMeta=birdsMeta.filter(function(x){return x.key===cur.b;})[0];
