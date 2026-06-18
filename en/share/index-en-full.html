@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -264,9 +264,6 @@ initDateDropdowns();
 <div class="bird-name mincho" id="birdName"></div>
 <div class="bird-type"><span id="birdType"></span></div>
 <div class="subaxis" id="subAxis" style="display:none"></div>
-<div class="sec"><h2><span id="featTitle"></span> - Traits of Those Protected By</h2><ul class="feat" id="featList"></ul></div>
-<div class="sec"><h2 id="essTitle"></h2><p class="lead" id="essence"></p></div>
-<div class="sec"><h2 id="growTitle"></h2><p id="grow"></p></div>
 <div class="sec"><h2>Services Well-Matched for You</h2><ul class="afflist" id="affList"></ul>
 <p class="pr-note">&#8251;掲載は広告（PR）を含みます。本診断は娯楽であり、専門的な助言ではありません。ご利用はご自身のご判断でお願いいたします。</p></div>
 <div class="share"><button class="solid" onclick="downloadResultImage()">Save Result as Image</button><button onclick="shareX()">Share on X</button></div>
@@ -337,7 +334,6 @@ var colorsMeta=[
 var editions={
 money:{label:'Fortune Edition',sec:{ess:'The Essence of Your Fortune',grow:'How to Grow Your Fortune'},
 colorLine:{W:'迷ったときほど、最初に心へ浮かんだ答えが正解です。',R:'考えるより先に動いたとき、運が味方いたします。',Y:'人の集まる場所に、あなたの金運の種があります。',B:'数字と予定に落とし込むほど、運が安定いたします。'},
-colorAff:{W:'A',R:'I',Y:'C',B:'E'},
 aff:{A:'占い・鑑定',B:'ネット銀行',C:'ポイ活サイト',D:'ネット証券・つみたて',E:'家計簿アプリ',F:'高還元クレジットカード',G:'自己投資・学び',H:'ふるさと納税',I:'副業・クラウドソーシング',J:'固定費・保険の見直し'},
 birds:{
 canaly:{title:'Voice That Calls Destiny',feat:['Sensitive to surrounding atmosphere','Notices small daily blessings','Attracts good people and invitations'],essence:'Your fortune flows from human connections. What you give returns multiplied.',grow:'Record kindness and repay it consistently. Small cycles become wealth streams.',aff:['C','F','A']},
@@ -348,7 +344,6 @@ phenix:{title:'The Eternal Returner',feat:['Experiences great swings','Rises aft
 }},
 work:{label:'Work Edition',sec:{ess:'The Essence of Your Work Fortune',grow:'How to Grow Your Work Fortune'},
 colorLine:{W:'迷ったら、最初に「やってみたい」と感じた選択を信じてくださいませ。',R:'手を挙げた人にチャンスが回ります。先に動くことが武器です。',Y:'人脈の広がりが、そのまま仕事の広がりになります。',B:'段取りと記録を固めるほど、評価が安定いたします。'},
-colorAff:{W:'CC',R:'SB',Y:'TE',B:'QL'},
 aff:{TE:'転職エージェント',HS:'転職スカウト・ハイクラス',QL:'資格・スキル講座',OL:'オンライン学習',SB:'副業・フリーランス',CC:'キャリアコーチング',BT:'ビジネス手帳・文具',BK:'専門書・学習サブスク'},
 birds:{
 canaly:{title:'The Connector',feat:['Reads the room','Naturally bridges people','Excels when needed'],essence:'Your work success flows from human connection. Harmony-building brings recognition.',grow:'Lift others over yourself. Trust accumulates and returns as advancement.',aff:['TE','QL','BT']},
@@ -359,7 +354,6 @@ phenix:{title:'The Late Bloomer',feat:['Has weathered ups and downs','Recovers f
 }},
 love:{label:'Love Edition',sec:{ess:'The Essence of Your Love Fortune',grow:'How to Grow Your Love Fortune'},
 colorLine:{W:'ピンときた相手こそ、ご縁の合図です。',R:'待つより、自分から一歩。素直さが心を動かします。',Y:'人の集まる場に、出会いの種があります。',B:'焦らず段階を踏むほど、信頼が育ちます。'},
-colorAff:{W:'UR',R:'MA',Y:'DT',B:'KS'},
 aff:{MA:'マッチングアプリ',KS:'結婚相談所・婚活',UR:'恋愛・相性占い',BE:'美容・エステ・コスメ',FA:'ファッション',DT:'デート・レストラン',SM:'自分磨き・学び'},
 birds:{
 canaly:{title:'The Empathic Romantic',feat:['Senses others\' feelings','Makes others feel safe','Blessed with connections'],essence:'Your love deepens through empathy. Your gentleness attracts lasting bonds.',grow:'尽くしすぎて自分を見失わないこと。与えると受け取るの釣り合いが取れたとき、関係が成熟します。',aff:['MA','UR','BE']},
@@ -457,8 +451,7 @@ document.getElementById('essence').textContent=bd.essence+ed.colorLine[cur.c];
 document.getElementById('grow').textContent=bd.grow;
 var prods=(birdAff[cur.b]||[]).concat(colorAff[cur.c]||[]).concat([commonAff]).concat(compareAff[cur.ed]?[compareAff[cur.ed]]:[]);
 var al=document.getElementById('affList');al.innerHTML='';
-if(prods.length){prods.forEach(function(p){var li=document.createElement('li');var rec=p.rec?'<p class="al-rec">'+p.rec+'</p>':'';li.innerHTML='<div class="al-row"><span class="al-label">'+p.html+'</span><span class="pr">PR</span></div>'+rec;al.appendChild(li);});}else{al.innerHTML='<li><span class="al-label" style="color:#A99A7E">この鳥の案件は、ただいま準備中でございます。</span></li>';}
-var img=document.getElementById('birdImg'),fb=document.getElementById('birdFallback');
+if(prods.length){prods.forEach(function(p){var li=document.createElement('li');var rec=p.rec?'<p class="al-rec">'+p.rec+'</p>':'';li.innerHTML='<div class="al-row"><span class="al-label">'+p.html+'</span><span class="pr">PR</span></div>'+rec;al.appendChild(li);});}else{al.innerHTML='<li><span class="al-label" style="color:#A99A7E">この鳥の案件は、ただいま準備中でございます。</span></li>';}var img=document.getElementById('birdImg'),fb=document.getElementById('birdFallback');
 img.style.display='block';fb.style.display='none';img.alt=name;
 img.onerror=function(){img.style.display='none';fb.style.display='flex';fb.textContent=name;};
 img.src='images/result/R-'+birdEnglishNames[cur.b]+'-'+cur.c+'.webp';
@@ -501,3 +494,6 @@ render();
 </script>
 </body>
 </html>
+
+
+
