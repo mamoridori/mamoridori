@@ -472,13 +472,21 @@ var birdEnglishNames={
 'phenix':'phenix'
 };
 var colorLetters={'W':'W','R':'R','Y':'Y','B':'B'};
+var popImageNames={
+'canaly':'Canaly',
+'condle':'Hawk',
+'owl':'Owl',
+'peac':'Peacok',
+'phenix':'Phenix'
+};
 
 function downloadResultImage(){
 if(!cur.b||!cur.c){alert('Please complete the divination first.');return;}
-var birdEn=birdEnglishNames[cur.b];
+var birdEn=popImageNames[cur.b];
 var colorLetter=cur.c;
 var imageName=birdEn+'-'+colorLetter+'.webp';
-var imageUrl=SITE_BASE+'/images/pop-en/'+imageName;
+var localBase=(location.pathname.indexOf('/en/share/')!==-1||location.pathname.indexOf('\\en\\share\\')!==-1)?'../../images/pop-en/':'../images/pop-en/';
+var imageUrl=(location.protocol==='file:')?localBase+imageName:SITE_BASE+'/images/pop-en/'+imageName;
 var modalImg=document.getElementById('modalImage');
 modalImg.src=imageUrl;
 document.getElementById('modalOverlay').classList.add('active');
@@ -520,7 +528,12 @@ function affHeader(t){
 var li=document.createElement('li');
 li.innerHTML='<span style="font-family:\'Shippori Mincho B1\',serif;font-size:12px;letter-spacing:.14em;color:var(--gold-deep);">'+t+'</span>';
 return li;
-}function render(){
+}function birdIconUrl(){
+var imageName=cur.b+'-'+cur.c+'.webp';
+var localBase=(location.pathname.indexOf('/en/share/')!==-1||location.pathname.indexOf('\\en\\share\\')!==-1)?'../../images/':'../images/';
+return (location.protocol==='file:')?localBase+imageName:'/images/'+imageName;
+}
+function render(){
 var ed=editions[cur.ed];
 var bMeta=birdsMeta.filter(function(x){return x.key===cur.b;})[0];
 var cMeta=colorsMeta.filter(function(x){return x.key===cur.c;})[0];
@@ -547,7 +560,7 @@ if(SHEIN.common.length){al.appendChild(affHeader('Popular Picks'));SHEIN.common.
 var img=document.getElementById('birdImg'),fb=document.getElementById('birdFallback');
 img.style.display='block';fb.style.display='none';img.alt=name;
 img.onerror=function(){img.style.display='none';fb.style.display='flex';fb.textContent=name;};
-img.src='images/result/R-'+birdEnglishNames[cur.b]+'-'+cur.c+'.webp';
+img.src=birdIconUrl();
 document.querySelectorAll('.chip').forEach(function(ch){ch.classList.remove('on');});
 var sel=document.querySelector('.chip[data-id="'+cur.b+'-'+cur.c+'"]');if(sel)sel.classList.add('on');
 document.querySelectorAll('.edtab').forEach(function(t){t.classList.toggle('on',t.getAttribute('data-ed')===cur.ed);});
@@ -587,5 +600,8 @@ render();
 </script>
 </body>
 </html>
+
+
+
 
 
