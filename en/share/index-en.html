@@ -392,13 +392,21 @@ var birdEnglishNames={
 'phenix':'phenix'
 };
 var colorLetters={'W':'W','R':'R','Y':'Y','B':'B'};
+var popImageNames={
+'canaly':'Canaly',
+'condle':'Hawk',
+'owl':'Owl',
+'peac':'Peacok',
+'phenix':'Phenix'
+};
 
 function downloadResultImage(){
 if(!cur.b||!cur.c){alert('Please complete the divination first.');return;}
-var birdEn=birdEnglishNames[cur.b];
+var birdEn=popImageNames[cur.b];
 var colorLetter=cur.c;
 var imageName=birdEn+'-'+colorLetter+'.webp';
-var imageUrl=SITE_BASE+'/images/pop-en/'+imageName;
+var localBase=(location.pathname.indexOf('/en/share/')!==-1||location.pathname.indexOf('\\en\\share\\')!==-1)?'../../images/pop-en/':'../images/pop-en/';
+var imageUrl=(location.protocol==='file:')?localBase+imageName:SITE_BASE+'/images/pop-en/'+imageName;
 var modalImg=document.getElementById('modalImage');
 modalImg.src=imageUrl;
 document.getElementById('modalOverlay').classList.add('active');
@@ -431,6 +439,11 @@ cur.parity=(st>0)?(st%2===1?'odd':'even'):null;
 render();show('result');
 }
 function show(id){document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active');});document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'instant'});}
+function birdIconUrl(){
+var imageName=cur.b+'-'+cur.c+'.webp';
+var localBase=(location.pathname.indexOf('/en/share/')!==-1||location.pathname.indexOf('\\en\\share\\')!==-1)?'../../images/':'../images/';
+return (location.protocol==='file:')?localBase+imageName:'/images/'+imageName;
+}
 function render(){
 var ed=editions[cur.ed];
 var bMeta=birdsMeta.filter(function(x){return x.key===cur.b;})[0];
@@ -454,7 +467,7 @@ var al=document.getElementById('affList');al.innerHTML='';
 if(prods.length){prods.forEach(function(p){var li=document.createElement('li');var rec=p.rec?'<p class="al-rec">'+p.rec+'</p>':'';li.innerHTML='<div class="al-row"><span class="al-label">'+p.html+'</span><span class="pr">PR</span></div>'+rec;al.appendChild(li);});}else{al.innerHTML='<li><span class="al-label" style="color:#A99A7E">この鳥の案件は、ただいま準備中でございます。</span></li>';}var img=document.getElementById('birdImg'),fb=document.getElementById('birdFallback');
 img.style.display='block';fb.style.display='none';img.alt=name;
 img.onerror=function(){img.style.display='none';fb.style.display='flex';fb.textContent=name;};
-img.src='images/result/R-'+birdEnglishNames[cur.b]+'-'+cur.c+'.webp';
+img.src=birdIconUrl();
 document.querySelectorAll('.chip').forEach(function(ch){ch.classList.remove('on');});
 var sel=document.querySelector('.chip[data-id="'+cur.b+'-'+cur.c+'"]');if(sel)sel.classList.add('on');
 document.querySelectorAll('.edtab').forEach(function(t){t.classList.toggle('on',t.getAttribute('data-ed')===cur.ed);});
@@ -494,6 +507,9 @@ render();
 </script>
 </body>
 </html>
+
+
+
 
 
 
