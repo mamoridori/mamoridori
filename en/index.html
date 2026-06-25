@@ -576,10 +576,10 @@ render();show('result');
 function show(id){document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active');});document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'instant'});}
 function itemRecommendation(section,p,bMeta,cMeta,ed){
 var colorTips={
-'W':'A calm, clean pick that suits your white energy.',
-'R':'A bold accent that lifts your red energy.',
-'Y':'A bright choice that matches your yellow energy.',
-'B':'A cool-toned pick that supports your blue energy.'
+'W':'A soft, graceful pick that feels like wrapping yourself in gentle protection.',
+'R':'A striking little accent to make your charm and confidence glow a little brighter.',
+'Y':'A bright, cheerful pick that feels like wearing good luck and good mood together.',
+'B':'A calm, polished pick that helps your energy feel poised and beautifully balanced.'
 };
 function isSharedColorItem(){
 var aff=SHEIN[cur.ed]||{};
@@ -592,12 +592,12 @@ return (arr[1]&&arr[1].url)||'';
 return urls.every(function(u){return !!u && u===p.url;});
 }
 if(p.rec&&p.rec.trim()) return p.rec;
-if(section==='color'&&isSharedColorItem()) return 'A practical pick that works well for any result.';
-if(section==='color') return colorTips[cMeta.key]||'A lovely match for your guardian color.';
-if(section==='bird') return 'A fitting pick for the spirit of your guardian bird.';
-if(section==='common') return 'A popular pick that is easy to try first.';
-if(section==='special') return 'A featured pick chosen especially for this result.';
-return 'A gentle recommendation for your reading.';
+if(section==='color'&&isSharedColorItem()) return 'An easy lucky pick that feels right no matter which result you received.';
+if(section==='color') return colorTips[cMeta.key]||'A lovely little pick that blends naturally with your guardian color.';
+if(section==='bird') return 'A little lucky pick that feels beautifully in tune with the spirit of your guardian bird.';
+if(section==='common') return 'A popular little favorite that is perfect for adding a hint of luck to your everyday mood.';
+if(section==='special') return 'A special lucky pick chosen just for this result, perfect when you want to invite a little extra magic in.';
+return 'Choose the one that makes your heart flutter first. Sometimes that feeling is the sign your luck wants to reach you.';
 }
 function affItem(p,fallbackRec){
 var li=document.createElement('li');
@@ -639,8 +639,8 @@ var aff=SHEIN[cur.ed]||{color:{},bird:{},common:[],special:{}};
 var cItems=(aff.color&&aff.color[cur.c])||[],bItems=(aff.bird&&aff.bird[cur.b])||[],commonItems=aff.common||[],specialItems=(aff.special&&aff.special[cur.b])||[];
 if(cItems.length){cItems.forEach(function(p){al.appendChild(affItem(p,itemRecommendation('color',p,bMeta,cMeta,ed)));});}
 if(bItems.length){bItems.forEach(function(p){al.appendChild(affItem(p,itemRecommendation('bird',p,bMeta,cMeta,ed)));});}
-if(commonItems.length){al.appendChild(affHeader('Popular Picks'));commonItems.forEach(function(p){al.appendChild(affItem(p,itemRecommendation('common',p,bMeta,cMeta,ed)));});}
-if(specialItems.length){al.appendChild(affHeader('Special Recommended'));specialItems.forEach(function(p){al.appendChild(affItem(p,itemRecommendation('special',p,bMeta,cMeta,ed)));});}
+if(commonItems.length){al.appendChild(affHeader('Lucky Favorites'));commonItems.forEach(function(p){al.appendChild(affItem(p,itemRecommendation('common',p,bMeta,cMeta,ed)));});}
+if(specialItems.length){al.appendChild(affHeader('Your Special Lucky Pick'));specialItems.forEach(function(p){al.appendChild(affItem(p,itemRecommendation('special',p,bMeta,cMeta,ed)));});}
 var img=document.getElementById('birdImg'),fb=document.getElementById('birdFallback');
 img.style.display='block';fb.style.display='none';img.alt=name;
 img.onerror=function(){img.style.display='none';fb.style.display='flex';fb.textContent=name;};
