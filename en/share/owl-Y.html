@@ -4,12 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mamoridori – Guardian Bird Reading | Find the bird that watches over you</title>
-<meta name="description" content="A free reading that reveals your guardian bird from your birth date and name. Answer simple questions to explore your true nature through Wealth, Career and Love.">
+<meta name="description" content="Discover your guardian bird through a free divination. Answer simple questions to understand the protective bird guiding you across three life themes: fortune, work, and love.">
 <meta name="robots" content="noindex">
+<link rel="canonical" href="https://mamoridori.com/">
+<link rel="alternate" hreflang="ja" href="https://mamoridori.com/">
+<link rel="alternate" hreflang="zh-Hant" href="https://mamoridori.com/mdn/">
+<link rel="alternate" hreflang="en" href="https://mamoridori.com/en/">
+<!-- OGP / X Card (Home Page Default) -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Mamoridori – Guardian Bird Reading">
+<meta property="og:site_name" content="Guardian Bird Divination">
 <meta property="og:title" content="My guardian bird is the “Yellow Owl” | Mamoridori">
-<meta property="og:description" content="A free reading that reveals your guardian bird from your birth date and name. Answer simple questions to explore your true nature through Wealth, Career and Love.">
+<meta property="og:description" content="Discover your guardian bird through a free divination. Answer simple questions to understand the protective bird guiding you across three life themes: fortune, work, and love.">
 <meta property="og:url" content="https://mamoridori.com/en/share/owl-Y.html">
 <meta property="og:image" content="https://mamoridori.com/images/R-F-Y.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -85,7 +90,8 @@ html,body{background:var(--cream);color:var(--ink);font-family:"Zen Kaku Gothic 
 .brow:last-child{border-bottom:none;}
 .brow .bn{flex:0 0 56px;font-size:12.5px;color:var(--ink-soft);font-family:"Shippori Mincho B1",serif;}
 .chips{display:flex;gap:7px;flex-wrap:wrap;}
-.chip{width:30px;height:30px;border-radius:50%;border:2px solid #fff;cursor:pointer;box-shadow:0 0 0 1px var(--gold-hair);transition:.18s;}
+.chip{width:30px;height:30px;border-radius:50%;border:2px solid #fff;cursor:pointer;box-shadow:0 0 0 1px var(--gold-hair);transition:.18s;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#FCFAF4;}
+.chip img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;pointer-events:none;}
 .chip:active{transform:scale(.92);} .chip.on{box-shadow:0 0 0 2px var(--gold-deep);transform:scale(1.08);}
 .rcard{background:linear-gradient(180deg,#FFFDF8,#FBF5E9);border-radius:26px;padding:34px 24px 30px;box-shadow:0 24px 50px -26px var(--shadow);border:1px solid #F0E6D0;position:relative;overflow:hidden;}
 .rcard::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 40% at 50% 0%,rgba(178,148,79,.12),transparent 70%);pointer-events:none;}
@@ -96,8 +102,6 @@ html,body{background:var(--cream);color:var(--ink);font-family:"Zen Kaku Gothic 
 .bird-name{margin-top:20px;text-align:center;font-size:30px;font-weight:700;letter-spacing:.2em;}
 .bird-type{margin-top:8px;text-align:center;font-size:12.5px;letter-spacing:.12em;color:var(--gold-deep);}
 .bird-type span{display:inline-block;border-top:1px solid var(--gold-hair);border-bottom:1px solid var(--gold-hair);padding:6px 18px;}
-.subaxis{margin:14px auto 0;max-width:300px;text-align:center;font-size:12px;line-height:1.9;color:var(--ink-soft);background:#FCFAF4;border:1px solid var(--gold-hair);border-radius:12px;padding:10px 14px;}
-.subaxis b{color:var(--gold-deep);}
 .sec{margin-top:22px;background:#fff;border-radius:18px;padding:20px 18px;border:1px solid #F2EAD8;}
 .sec h2{font-family:"Shippori Mincho B1",serif;font-size:15px;font-weight:600;letter-spacing:.06em;display:flex;align-items:center;gap:8px;}
 .sec h2::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;}
@@ -119,10 +123,22 @@ html,body{background:var(--cream);color:var(--ink);font-family:"Zen Kaku Gothic 
 .afflist .al-rec{font-family:"Shippori Mincho B1",serif;font-size:12px;color:var(--gold-deep);letter-spacing:.04em;line-height:1.65;padding-left:2px;}
 .afflist .al-rec::before{content:"\2014\2009";color:var(--gold);}
 .pr-note{margin-top:14px;font-size:10.5px;color:#B6A789;line-height:1.8;}
-.share{display:flex;gap:12px;margin-top:24px;}
-.share button{flex:1;border:1px solid var(--gold);background:#fff;color:var(--gold-deep);font-family:inherit;font-size:13px;letter-spacing:.1em;padding:13px;border-radius:13px;cursor:pointer;}
-.share button.solid{background:linear-gradient(180deg,#C2A75F,var(--gold-deep));color:#fff;border-color:transparent;}
+.share,.compat-share-row{display:flex;justify-content:center;gap:14px;margin-top:24px;}
+.share button,.compat-share-btn{width:58px;height:58px;border-radius:50%;border:1px solid var(--gold-hair);display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;box-shadow:0 8px 18px -12px var(--shadow);transition:.18s;}
+.share button:active,.compat-share-btn:active{transform:scale(.94);}
+.share-icon{width:30px;height:30px;display:block;pointer-events:none;}
+.share button.share-facebook,.compat-share-facebook{background:#1877F2;border-color:transparent;}
+.share button.share-whatsapp,.compat-share-whatsapp{background:#25D366;border-color:transparent;}
+.share button.share-x,.compat-share-x{background:#000;border-color:transparent;}
+.share button.share-copy,.compat-share-copy{background:#fff;border-color:var(--gold);}
+.share-copy-done,.compat-copy-done{text-align:center;margin-top:10px;font-size:12px;color:var(--gold-deep);letter-spacing:.08em;}
 .rfoot{margin:22px 4px 0;text-align:center;font-size:10.5px;color:#B6A789;line-height:1.9;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9998;animation:fadeOverlay .3s ease both;}@keyframes fadeOverlay{from{opacity:0;}to{opacity:1;}}
+.modal-overlay.active{display:flex;align-items:center;justify-content:center;}
+.modal-content{position:relative;background:#fff;border-radius:20px;max-width:90vw;max-height:90vh;overflow:auto;box-shadow:0 24px 60px -20px rgba(80,66,38,.3);animation:slideUp .3s ease both;}@keyframes slideUp{from{transform:translateY(40px);opacity:0;}to{transform:none;opacity:1;}}
+.modal-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border:none;background:rgba(255,255,255,.9);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;color:#3B362C;z-index:9999;transition:.2s;}
+.modal-close:hover{background:#fff;color:#977B3A;}
+.modal-image{width:100%;height:auto;display:block;border-radius:20px;}
 .contact-lead{margin-top:18px;font-size:13.5px;color:var(--ink-soft);font-weight:300;text-align:center;}
 .contact-note{list-style:none;margin-top:16px;background:#FCFAF4;border:1px solid var(--gold-hair);border-radius:14px;padding:14px 16px;}
 .contact-note li{font-size:11.5px;color:var(--ink-soft);line-height:1.95;padding-left:18px;position:relative;}
@@ -130,144 +146,253 @@ html,body{background:var(--cream);color:var(--ink);font-family:"Zen Kaku Gothic 
 .form-embed{margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid #F0E6D0;background:#fff;}
 .form-embed iframe{width:100%;height:720px;border:none;display:block;}
 .form-link{display:block;text-align:center;margin-top:14px;font-size:12px;color:var(--gold-deep);letter-spacing:.06em;}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9998;animation:fadeOverlay .3s ease both;}@keyframes fadeOverlay{from{opacity:0;}to{opacity:1;}} .modal-overlay.active{display:flex;align-items:center;justify-content:center;} .modal-content{position:relative;background:#fff;border-radius:20px;max-width:90vw;max-height:90vh;overflow:auto;box-shadow:0 24px 60px -20px rgba(80,66,38,.3);animation:slideUp .3s ease both;}@keyframes slideUp{from{transform:translateY(40px);opacity:0;}to{transform:none;opacity:1;}} .modal-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border:none;background:rgba(255,255,255,.9);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;color:#3B362C;z-index:9999;transition:.2s;} .modal-close:hover{background:#fff;color:#977B3A;} .modal-image{width:100%;height:auto;display:block;border-radius:20px;}.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9998;animation:fadeOverlay .3s ease both;}@keyframes fadeOverlay{from{opacity:0;}to{opacity:1;}}.modal-overlay.active{display:flex;align-items:center;justify-content:center;}.modal-content{position:relative;background:#fff;border-radius:20px;max-width:90vw;max-height:90vh;overflow:auto;box-shadow:0 24px 60px -20px rgba(80,66,38,.3);animation:slideUp .3s ease both;}@keyframes slideUp{from{transform:translateY(40px);opacity:0;}to{transform:none;opacity:1;}}.modal-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border:none;background:rgba(255,255,255,.9);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;color:#3B362C;z-index:9999;transition:.2s;}.modal-close:hover{background:#fff;color:#977B3A;}.modal-image{width:100%;height:auto;display:block;border-radius:20px;}</style>
+.compat-box{margin:20px 0 0;background:#fff;border-radius:22px;padding:24px 20px;border:1px solid #F0E6D0;box-shadow:0 18px 40px -22px var(--shadow);}
+.compat-title{font-size:17px;font-weight:600;letter-spacing:.06em;color:var(--ink);text-align:center;margin-bottom:6px;}
+.compat-title::before,.compat-title::after{content:"*";color:var(--gold);font-size:12px;margin:0 8px;}
+.compat-lead{font-size:12.5px;color:var(--ink-soft);text-align:center;margin-bottom:14px;}
+.compat-dob{margin-bottom:0;}
+.compat-tabs{display:flex;gap:8px;margin-bottom:16px;}
+.compat-tab{flex:1;text-align:center;font-size:13px;padding:10px 6px;border-radius:11px;border:1px solid var(--gold-hair);background:#FCFAF4;color:var(--ink-soft);cursor:pointer;font-family:"Shippori Mincho B1",serif;letter-spacing:.04em;transition:.18s;min-height:44px;}
+.compat-tab.on{background:linear-gradient(180deg,#C2A75F,var(--gold-deep));color:#fff;border-color:transparent;}
+.compat-bird-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0;}
+.compat-bird-btn{padding:8px 4px;border:1.5px solid var(--gold-hair);border-radius:10px;background:#FCFAF4;cursor:pointer;text-align:center;font-size:11px;color:var(--ink-soft);font-family:"Shippori Mincho B1",serif;transition:.18s;line-height:1.5;}
+.compat-bird-btn.on{border-color:var(--gold-deep);background:#FDF6E3;color:var(--gold-deep);}
+.compat-selected{margin:8px 0;font-size:13px;color:var(--gold-deep);font-family:"Shippori Mincho B1",serif;}
+.compat-cta{margin-top:16px;font-size:15px;padding:14px;letter-spacing:.14em;}
+.compat-result{margin-top:22px;padding-top:20px;border-top:1px dashed var(--gold-hair);}
+.compat-birds{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;}
+.compat-bird-chip{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.compat-bird-img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 4px 14px -6px rgba(120,98,46,.4),0 0 0 1px var(--gold-hair);}
+.compat-bird-name{font-size:11px;color:var(--gold-deep);letter-spacing:.06em;text-align:center;font-family:"Shippori Mincho B1",serif;}
+.compat-heart{font-size:22px;color:var(--gold);flex-shrink:0;}
+.compat-score-wrap{margin:0 auto 14px;max-width:280px;}
+.compat-score-bar{height:10px;background:#F0E6D0;border-radius:999px;overflow:hidden;margin-bottom:6px;}
+.compat-score-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#C2A75F,#E8C56A);transition:width .6s ease;}
+.compat-score-label{text-align:center;font-size:13px;color:var(--gold-deep);font-family:"Shippori Mincho B1",serif;letter-spacing:.06em;}
+.compat-keyword{text-align:center;font-size:15px;font-weight:600;color:var(--ink);letter-spacing:.08em;margin-bottom:12px;font-family:"Shippori Mincho B1",serif;}
+.compat-desc{font-size:13px;color:var(--ink-soft);line-height:2;text-align:left;background:#FCFAF4;border-radius:14px;padding:14px 16px;border:1px solid var(--gold-hair);}
+.note-hub{margin:24px 22px 0;text-align:center;}
+.note-hub-link{display:inline-block;background:linear-gradient(180deg,#E8DCC8,#D9CBAB);border:1px solid var(--gold-hair);border-radius:16px;padding:16px 24px;font-family:"Shippori Mincho B1",serif;font-size:14px;color:var(--gold-deep);letter-spacing:.06em;text-decoration:none;transition:.2s;box-shadow:0 8px 20px -10px var(--shadow);}
+.note-hub-link:active{transform:translateY(2px);}
+</style>
 </head>
 <body>
 <div class="stage"><div class="frame">
 
 <section id="top" class="view active">
-<div class="hero"><img src="/images/top-en.webp" alt="Mamoridori – Guardian Bird Reading"><div class="veil"></div></div>
+<div class="hero"><img src="../../images/top-en.webp" alt="Guardian Bird Divination"><div class="veil"></div></div>
 <div class="lede">
-<p>Answer a few simple questions,<br>and discover the guardian bird watching over you.</p>
+<p>Discover the guardian bird watching over you.</p>
 </div>
 
 <div class="panel">
-<div style="text-align:center"><span class="tag">Free &middot; Your Guardian Bird Reading</span></div>
-<div class="edlabel">Choose a theme for your reading</div>
+<div style="text-align:center"><span class="tag">Free Guardian Bird Divination</span></div>
+<div class="edlabel">Select a Theme</div>
 <div class="edtabs" id="edtabsTop"></div>
 <div class="field">
-<label>Date of birth</label>
+<label>Date of Birth</label>
 <div class="dob">
-<div class="dob-col"><select id="yy"></select><span class="unit">Year</span></div>
-<div class="dob-col"><select id="mm"></select><span class="unit">Month</span></div>
-<div class="dob-col"><select id="dd"></select><span class="unit">Day</span></div>
+<div class="dob-col"><select id="yy"><option value="">----</option></select><span class="unit">Year</span></div>
+<div class="dob-col"><select id="mm"><option value="">--</option></select><span class="unit">Month</span></div>
+<div class="dob-col"><select id="dd"><option value="">--</option></select><span class="unit">Day</span></div>
 </div>
 </div>
-<div class="field"><label>Your name <small>(a nickname is fine)</small></label><input type="text" id="nm" placeholder="e.g. Emily Carter"></div>
-<div class="field"><label>Letters in your name <small>(optional &middot; adds a small extra reading)</small></label><input type="number" id="strokes" inputmode="numeric" placeholder="e.g. 11"></div>
-<p class="hint">Nicknames work too. Your name is processed only on your device and is never sent anywhere. The letter count is optional.</p>
-<button class="cta" onclick="diagnose()">Reveal my guardian bird</button>
-<p class="micro">This reading is for entertainment purposes only. Your birth date and name are calculated entirely on your device and are never sent to or stored by this site.</p>
+<p class="hint">Diagnosis is based on your date of birth. Your information will not be sent or stored outside this device.</p>
+<button class="cta" onclick="diagnose()">Discover Your Guardian Bird</button>
+<p class="micro">This divination is for entertainment purposes. Your information is calculated only on your device and never sent or stored.</p>
 </div>
+
+<script>
+function initDateDropdowns(){
+  var yy = document.getElementById('yy');
+  var mm = document.getElementById('mm');
+  var dd = document.getElementById('dd');
+
+  if (!yy || !mm || !dd) {
+    console.error('Date of birth select element not found');
+    return;
+  }
+
+  yy.innerHTML = '<option value="">----</option>';
+  mm.innerHTML = '<option value="">--</option>';
+  dd.innerHTML = '<option value="">--</option>';
+
+  var currentYear = new Date().getFullYear();
+
+  for (var y = currentYear; y >= 1920; y--) {
+    yy.insertAdjacentHTML('beforeend', '<option value="' + y + '">' + y + '</option>');
+  }
+
+  for (var m = 1; m <= 12; m++) {
+    mm.insertAdjacentHTML('beforeend', '<option value="' + m + '">' + m + '</option>');
+  }
+
+  for (var d = 1; d <= 31; d++) {
+    dd.insertAdjacentHTML('beforeend', '<option value="' + d + '">' + d + '</option>');
+  }
+}
+
+initDateDropdowns();
+</script>
 
 <div class="intro">
-<p class="hook">&ldquo;Why am I always like this?&rdquo;</p>
-<p>Have you ever found yourself pausing on that thought, late at night? Feeling worn out from fitting in with others, or carrying a personality you can never quite put into words &mdash; far more people live with this than you might imagine.</p>
-<p>But there is nothing wrong with you. Perhaps you simply haven&rsquo;t yet met a &ldquo;mirror&rdquo; that truly reflects who you are. The guardian bird reading is one such mirror.</p>
+<p class="hook">"I need a little hint about who I am right now"</p>
+<p>The Guardian Bird Divination is a free tool that gently reveals your true nature and current life theme through bird archetypes. It uses your date of birth as a guide.</p>
 
-<h2>What is the Guardian Bird Reading?</h2>
-<p>Using your birth date and your name, this reading reveals the one bird that watches over you. There are twenty guardian birds in all, each with its own character and its own gifts. There may come a moment when you realize that what you thought was a burden was, in fact, the shape of the wings you were born with.</p>
+<h2>About Guardian Bird Divination</h2>
+<p>Guardian Bird Divination is a free tool that reveals your protective bird from your date of birth. There are 20 bird types, each with unique personalities and strengths. What you see as a flaw might actually be the beautiful shape of your unique wings.</p>
 
-<h2>What you will discover</h2>
+<h2>What You'll Discover</h2>
 <ul>
-<li>Your true character and your hidden strengths</li>
-<li>How you approach love, and who suits you well</li>
-<li>The situations where you shine at work</li>
-<li>Your relationship with money, and the flow of your fortune</li>
+<li>Discover your true nature and hidden strengths</li>
+<li>Gain insights into how to approach love and relationships</li>
+<li>Learn where you naturally shine in your work</li>
+<li>Understand your relationship with money and abundance</li>
 </ul>
 
-<h2>Why a bird?</h2>
-<p>Our own flaws can be hard to accept. Yet when we can think, &ldquo;that&rsquo;s simply how this bird is,&rdquo; the tension somehow eases from our shoulders. Through the image of a bird, you can look at yourself again with gentler eyes.</p>
+<h2>About the Information We Use</h2>
+<p>This reading uses your date of birth. Your information is calculated only on your device and never sent or stored.</p>
 
-<h2>About your name</h2>
-<p>This reading uses your name as well as your birth date to calculate your destiny number. A nickname you are usually called by is perfectly fine &mdash; what matters most is knowing you as you naturally are. The bird revealed by a nickname is the one accompanying you as you are right now.</p>
-<p>If, on the other hand, you wish to know the &ldquo;true guardian bird&rdquo; that has been with you since birth, try your full given name. Neither answer is more correct than the other &mdash; choose according to the self you wish to know.</p>
+<h2>About the Full Readings</h2>
+<p>After your result, we also provide a link to our Official Note, where you can read all 20 types in more depth. If you would like to explore the character and themes of your guardian bird at your own pace, please visit Note as well. This reading is meant to be enjoyed as entertainment and does not claim to determine outcomes or the future.</p>
 </div>
 
-
-
 <div class="sns">
-<h2>Go deeper with Mamoridori</h2>
+<h2>Go Deeper with Guardian Bird Divination</h2>
 <ul class="sns-links">
 <li><a href="https://note.com/mamoridori" target="_blank" rel="noopener">
-<span class="sl-name">Official note blog (Japanese)</span>
-<span class="sl-desc">In-depth essays on the true nature of each guardian bird.</span>
+<span class="sl-name">Official Note ― In-depth Guardian Bird Readings</span>
+<span class="sl-desc">Read all 20 guardian birds in more depth, by character and theme.</span>
 </a></li>
 <li><a href="https://x.com/mamoridori_jp" target="_blank" rel="noopener">
-<span class="sl-name">Official X &mdash; @mamoridori_jp</span>
-<span class="sl-desc">Daily messages for each guardian bird (mostly in Japanese).</span>
+<span class="sl-name">Official X ― @mamoridori_jp</span>
+<span class="sl-desc">Daily messages for each bird. A place to connect, too.</span>
 </a></li>
 <li><a href="https://www.instagram.com/mamoridori_official/" target="_blank" rel="noopener">
-<span class="sl-name">Official Instagram &mdash; @mamoridori_official</span>
+<span class="sl-name">Official Instagram ― @mamoridori_official</span>
 <span class="sl-desc">The world of the guardian birds, in pictures.</span>
 </a></li>
 <li><a href="https://www.threads.com/@mamoridori_official" target="_blank" rel="noopener">
-<span class="sl-name">Official Threads &mdash; @mamoridori_official</span>
+<span class="sl-name">Official Threads ― @mamoridori_official</span>
 <span class="sl-desc">Daily notes and a place to connect.</span>
 </a></li>
 </ul>
 </div>
 
-<div class="foot">&copy; Mamoridori ／ <a onclick="show('contact')">Contact</a>・<a href="/about.html">About (Japanese)</a>・<a href="/privacy.html">Privacy Policy (Japanese)</a><br><a href="/">日本語</a>・<a href="/mdn/">繁體中文</a></div>
+<div class="foot">&copy; Guardian Bird Divination / <a onclick="show('contact')">Contact</a> · <a href="about.html">About Us</a> · <a href="privacy.html">Privacy Policy</a><br><a href="https://note.com/mamoridori" target="_blank" rel="noopener">Official Note</a> · <a href="https://x.com/mamoridori_jp" target="_blank" rel="noopener">Official X</a> · <a href="https://www.instagram.com/mamoridori_official/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.threads.com/@mamoridori_official" target="_blank" rel="noopener">Threads</a><br><a href="/en/">English</a> · <a href="/mdn/">繁體中文</a></div>
 </section>
 
 <section id="result" class="view">
 <div class="result-wrap">
-<button class="back" onclick="show('top')">&lsaquo; Back to top</button>
+<button class="back" onclick="show('top')">&lsaquo; Back to Top</button>
 <div class="edtabs" id="edtabsResult"></div>
-<div class="picker" id="picker"><div class="pl">Preview: all 20 types (shown automatically after your reading)</div></div>
+<div class="picker" id="picker"><div class="pl">Preview: 20 Types (auto-displayed in actual results)</div></div>
 <div class="rcard" id="rcard">
 <span class="ed-pill" id="edPill"></span>
 <div class="bird-holder"><img class="bird" id="birdImg" alt=""><div class="bird fallback" id="birdFallback" style="display:none"></div></div>
 <div class="bird-name mincho" id="birdName"></div>
 <div class="bird-type"><span id="birdType"></span></div>
-<div class="subaxis" id="subAxis" style="display:none"></div>
+<div class="sec"><h2><span id="featTitle"></span> - Traits of Those Protected By</h2><ul class="feat" id="featList"></ul></div>
+<div class="sec"><h2 id="essTitle"></h2><p class="lead" id="essence"></p></div>
+<div class="sec"><h2 id="growTitle"></h2><p id="grow"></p></div>
 <div class="sec"><h2>Lucky Items for You</h2><ul class="afflist" id="affList"></ul>
 <p class="pr-note">* The listings below include advertising (PR). This reading is for entertainment, not professional advice. Please use it at your own discretion.</p></div>
-<div class="share"><button class="solid" onclick="downloadResultImage()">Save result as image</button><button onclick="shareX()">Share on X</button></div>
+<div class="share">
+<button class="share-facebook" onclick="shareFacebook()" aria-label="Facebook" title="Facebook"><img class="share-icon" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='49' text-anchor='middle' font-size='52' font-family='Arial' font-weight='700' fill='white'%3Ef%3C/text%3E%3C/svg%3E"></button>
+<button class="share-whatsapp" onclick="shareWhatsApp()" aria-label="WhatsApp" title="WhatsApp"><img class="share-icon" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='36' font-family='Arial' font-weight='700' fill='white'%3EW%3C/text%3E%3C/svg%3E"></button>
+<button class="share-x" onclick="shareX()" aria-label="X" title="X"><img class="share-icon" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='38' font-family='Arial' font-weight='700' fill='white'%3EX%3C/text%3E%3C/svg%3E"></button>
+<button class="share-copy" id="copyShareButton" onclick="copyShareLink()" aria-label="Copy Link" title="Copy Link"><img class="share-icon" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23977B3A' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M27 38l-4 4a12 12 0 0 1-17-17l8-8a12 12 0 0 1 17 0'/%3E%3Cpath d='M37 26l4-4a12 12 0 0 1 17 17l-8 8a12 12 0 0 1-17 0'/%3E%3Cpath d='M24 40l16-16'/%3E%3C/g%3E%3C/svg%3E"></button>
+</div>
+<div class="share-copy-done" id="copyShareDone" style="display:none">Copied</div>
+</div>
+
+<div class="note-hub"><a href="https://note.com/mamoridori/n/n0b6a3f2e2c19" target="_blank" rel="noopener" class="note-hub-link">Read the Full Guide</a></div>
+
+<div class="compat-box" id="compatBox">
+<div class="compat-title mincho">Compatibility with Someone Special</div>
+<div class="compat-tabs">
+  <button class="compat-tab on" id="tabBirth" onclick="switchCompatMode('birth')">By Birthday</button>
+  <button class="compat-tab" id="tabPick" onclick="switchCompatMode('pick')">By Bird Type</button>
+</div>
+<div id="compatBirthMode">
+<p class="compat-lead">Select the other person's date of birth.</p>
+<div class="dob compat-dob">
+<div class="dob-col"><select id="cyy"><option value="">----</option></select><span class="unit">Year</span></div>
+<div class="dob-col"><select id="cmm"><option value="">--</option></select><span class="unit">Month</span></div>
+<div class="dob-col"><select id="cdd"><option value="">--</option></select><span class="unit">Day</span></div>
+</div>
+<button class="cta compat-cta" onclick="diagnoseCompat()">See Compatibility</button>
+</div>
+<div id="compatPickMode" style="display:none">
+  <p class="compat-lead">Choose the other person's guardian bird type.</p>
+  <div class="compat-bird-grid" id="compatBirdGrid"></div>
+  <div class="compat-selected" id="compatPickSelected" style="display:none">Selected: <span id="compatPickLabel"></span></div>
+  <button class="cta compat-cta" onclick="diagnoseCompatPick()">See Compatibility</button>
+</div>
+
+<div class="compat-result" id="compatResult" style="display:none">
+<div class="compat-birds" id="compatBirds"></div>
+<div class="compat-score-wrap"><div class="compat-score-bar"><div class="compat-score-fill" id="compatFill"></div></div><div class="compat-score-label" id="compatScoreLabel"></div></div>
+<div class="compat-keyword" id="compatKeyword"></div>
+<p class="compat-desc" id="compatDesc"></p>
+<div class="compat-share-row">
+<button class="compat-share-btn compat-share-facebook" onclick="shareCompatFacebook()" aria-label="Facebook" title="Facebook"><img class="share-icon" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='49' text-anchor='middle' font-size='52' font-family='Arial' font-weight='700' fill='white'%3Ef%3C/text%3E%3C/svg%3E"></button>
+<button class="compat-share-btn compat-share-whatsapp" onclick="shareCompatWhatsApp()" aria-label="WhatsApp" title="WhatsApp"><img class="share-icon" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='36' font-family='Arial' font-weight='700' fill='white'%3EW%3C/text%3E%3C/svg%3E"></button>
+<button class="compat-share-btn compat-share-x" onclick="shareCompat()" aria-label="X" title="X"><img class="share-icon" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='38' font-family='Arial' font-weight='700' fill='white'%3EX%3C/text%3E%3C/svg%3E"></button>
+<button class="compat-share-btn compat-share-copy" onclick="copyCompatLink()" aria-label="Copy Link" title="Copy Link"><img class="share-icon" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23977B3A' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M27 38l-4 4a12 12 0 0 1-17-17l8-8a12 12 0 0 1 17 0'/%3E%3Cpath d='M37 26l4-4a12 12 0 0 1 17 17l-8 8a12 12 0 0 1-17 0'/%3E%3Cpath d='M24 40l16-16'/%3E%3C/g%3E%3C/svg%3E"></button>
+</div>
+<div class="compat-copy-done" id="compatCopyDone" style="display:none">Copied</div>
+</div>
 </div>
 
 <div class="sns">
-<h2>Go deeper with Mamoridori</h2>
+<h2>Go Deeper with Guardian Bird Divination</h2>
 <ul class="sns-links">
 <li><a href="https://note.com/mamoridori" target="_blank" rel="noopener">
-<span class="sl-name">Official note blog (Japanese)</span>
-<span class="sl-desc">A closer look at the true nature of your guardian bird.</span>
+<span class="sl-name">Official Note ― Guardian Bird Divination</span>
+<span class="sl-desc">A closer look at the true nature of your guardian bird, on Note.</span>
 </a></li>
 <li><a href="https://x.com/mamoridori_jp" target="_blank" rel="noopener">
-<span class="sl-name">Official X &mdash; @mamoridori_jp</span>
+<span class="sl-name">Official X ― @mamoridori_jp</span>
 <span class="sl-desc">Daily messages for each bird, and a place to connect.</span>
 </a></li>
 <li><a href="https://www.instagram.com/mamoridori_official/" target="_blank" rel="noopener">
-<span class="sl-name">Official Instagram &mdash; @mamoridori_official</span>
+<span class="sl-name">Official Instagram ― @mamoridori_official</span>
 <span class="sl-desc">The world of the guardian birds, in pictures.</span>
 </a></li>
 <li><a href="https://www.threads.com/@mamoridori_official" target="_blank" rel="noopener">
-<span class="sl-name">Official Threads &mdash; @mamoridori_official</span>
+<span class="sl-name">Official Threads ― @mamoridori_official</span>
 <span class="sl-desc">Daily notes and a place to connect.</span>
 </a></li>
 </ul>
 </div>
-<p class="rfoot">This reading is for entertainment purposes only.<br>Please enjoy the result as a bit of fun.</p>
+<p class="rfoot">This divination is for entertainment purposes.<br>Please enjoy the result as a bit of fun.</p>
 </div>
 </section>
 
 <section id="contact" class="view">
 <div class="result-wrap">
-<button class="back" onclick="show('top')">&lsaquo; Back to top</button>
+<button class="back" onclick="show('top')">&lsaquo; Back to Top</button>
 <div class="rcard" style="padding:30px 22px;">
 <div class="bird-name mincho" style="font-size:24px;letter-spacing:.14em;">Contact</div>
-<div class="bird-type"><span>Mamoridori</span></div>
-<p class="contact-lead">Thank you for visiting Mamoridori.<br>Please reach us through the form below (the form is in Japanese &mdash; we apologize for the inconvenience).</p>
-<ul class="contact-note"><li>We do not offer personal readings, life advice or financial advice.</li><li>We cannot guarantee a reply to every message.</li></ul>
-<div class="form-embed"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHmuNwxoyJ1NnjquMsNZf71-Pzr4MShsJDNbdpe9NZLkEmyQ/viewform?embedded=true" loading="lazy">Loading&hellip;</iframe></div>
-<a class="form-link" href="https://forms.gle/de3KUxsbzoyM1Z3a9" target="_blank" rel="noopener">If the form does not load, tap here &rsaquo;</a>
+<div class="bird-type"><span>Guardian Bird Divination</span></div>
+<p class="contact-lead">Thank you for using Guardian Bird Divination.<br>Please send your inquiry through the form below.</p>
+<ul class="contact-note"><li>We do not offer individual readings, life coaching, or financial advice.</li><li>We do not guarantee replies to all inquiries.</li></ul>
+<div class="form-embed"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHmuNwxoyJ1NnjquMsNZf71-Pzr4MShsJDNbdpe9NZLkEmyQ/viewform?embedded=true" loading="lazy">Loading...</iframe></div>
+<a class="form-link" href="https://forms.gle/de3KUxsbzoyM1Z3a9" target="_blank" rel="noopener">If form does not display click here &rsaquo;</a>
 </div>
-<p class="rfoot">&copy; Mamoridori</p>
+<p class="rfoot">&copy; Guardian Bird Divination</p>
 </div>
 </section>
 
 </div></div>
+
+<div class="modal-overlay" id="modalOverlay">
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal()">&times;</button>
+<img class="modal-image" id="modalImage" alt="Guardian Bird Result">
+</div>
+</div>
 
 <script>
 var birdsMeta=[
@@ -275,41 +400,44 @@ var birdsMeta=[
 {key:'peac',name:'Peacock'},{key:'phenix',name:'Phoenix'}
 ];
 var colorsMeta=[
-{key:'W',name:'White',hex:'#F2ECDD',accent:'Clear intuition'},
-{key:'R',name:'Red',hex:'#C0392B',accent:'Burning drive'},
-{key:'Y',name:'Yellow',hex:'#E2B23C',accent:'Sociable abundance'},
-{key:'B',name:'Blue',hex:'#3A6EA5',accent:'Calm planning'}
+{key:'W',name:'White',hex:'#F2ECDD',accent:'Clear Intuition'},
+{key:'R',name:'Red',hex:'#C0392B',accent:'Burning Drive'},
+{key:'Y',name:'Yellow',hex:'#E2B23C',accent:'Social Abundance'},
+{key:'B',name:'Blue',hex:'#3A6EA5',accent:'Calm Planning'}
 ];
 var editions={
-money:{label:'Wealth',sec:{ess:'The nature of your money luck',grow:'How to grow it'},
-colorLine:{W:' When in doubt, the first answer that rises in your heart is the right one.',R:' When you act before you overthink, fortune takes your side.',Y:' The seeds of your wealth lie where people gather.',B:' The more you turn things into numbers and plans, the steadier your fortune becomes.'},
+money:{label:'Fortune',sec:{ess:'The Essence of Your Fortune',grow:'How to Grow Your Fortune'},
+colorLine:{W:'When in doubt, the answer that first comes to mind is the right one.',R:'Fortune favors you when you move before overthinking.',Y:'The seeds of your fortune lie where people gather.',B:'The more you turn things into numbers and plans, the steadier your fortune.'},
+aff:{A:'Fortune-telling',B:'Online banking',C:'Rewards sites',D:'Online investing',E:'Budgeting apps',F:'High-reward cards',G:'Self-investment',H:'Hometown tax',I:'Side jobs',J:'Reviewing fixed costs'},
 birds:{
-canaly:{title:'The Singer Who Draws Good Ties',feat:['Keenly senses the mood around them','Notices the small daily strokes of luck','Well liked, with invitations flowing in'],essence:'Your money luck flows in through your ties with people. What you do for others comes back around as abundance.',grow:'Note down the kindness and connections you receive, and return them often. Small cycles grow into a rich vein of gold.'},
-condle:{title:'The Hunter Who Strikes at the Right Moment',feat:['Calmly weighs the odds','Moves decisively once prepared','Dislikes wasted effort'],essence:'Your money luck leaps on the decisive strike. Quietly build your reserves, then commit at the right moment, and abundance jumps.',grow:'Keep spare funds and information in hand, and narrow your aim to one target. Focus, not scattering, lifts your wings higher.'},
-owl:{title:'The Sage Who Gathers Wisdom by Night',feat:['Careful to research before acting','Judges by numbers, not emotion','Excels at staying the course'],essence:'Your money luck builds quietly through knowledge and persistence. Those who research, record and continue end up holding the most.',grow:'Make your budget and assets visible, and review them calmly once a month. The more you understand, the more leaks turn into wealth.'},
-peac:{title:'The Beauty Who Attracts by Shining',feat:['Skilled at self-expression','Shines brightest on a glamorous stage','Moves people through impressions'],essence:'Your money luck is born from showing yourself. Polishing and presenting your own value is what calls abundance in.',grow:'Separate spending for appearances from investment in yourself. Money put into the latter returns many times over.'},
-phenix:{title:'The Late-Blooming Great Vessel',feat:['Experiences large ups and downs','Never finished by a single setback','Grows large given time'],essence:'Your money luck blooms late but grandly. A temporary lull is the run-up to a higher flight. The longer your view, the more your wealth grows.',grow:'Do not be swayed by short-term gains and losses; build in five-year spans. Not quitting midway is the strongest money habit of all.'}
+canaly:{title:'Voice That Calls Destiny',feat:['Sensitive to surrounding atmosphere','Notices small daily blessings','Attracts good people and invitations'],essence:'Your fortune flows from human connections. What you give returns multiplied.',grow:'Record kindness and repay it consistently. Small cycles become wealth streams.',aff:['C','F','A']},
+condle:{title:'The Strategic Hunter',feat:['Assesses odds with clarity','Strikes decisively when ready','Avoids wasted effort'],essence:'Your fortune swings on well-timed moves. Steady preparation leads to explosive gains.',grow:'Preserve resources and focus your aim. Concentration over diversification yields results.',aff:['D','I','B']},
+owl:{title:'The Wise Scholar',feat:['Researches before acting','Judges by data not emotion','Masters long-term consistency'],essence:'Your wealth builds quietly through wisdom and persistence. The patient researcher wins.',grow:'Visualize your finances. Monthly reviews transform knowledge into wealth.',aff:['E','B','H']},
+peac:{title:'The Radiant Charmer',feat:['Expresses naturally','Shines in the spotlight','Influences through presence'],essence:'Your fortune comes from showing your worth. Polish and display yourself.',grow:'Distinguish vanity from self-investment. Investment multiplies, vanity disappears.',aff:['G','F','A']},
+phenix:{title:'The Eternal Returner',feat:['Experiences great swings','Rises after every fall','Grows massively over time'],essence:'Your fortune matures over time. Setbacks are springboards for greater heights.',grow:'Think in five-year cycles. Never quit—that\'s the ultimate wealth strategy.',aff:['D','J','A']}
 }},
-work:{label:'Career',sec:{ess:'The nature of your career luck',grow:'How to grow it'},
-colorLine:{W:' When unsure, trust the choice that first made your heart stir.',R:' Chances go to the one who raises a hand first. Moving early is your weapon.',Y:' As your circle of people grows, so does your work.',B:' The firmer your process and records, the steadier your reputation.'},
+work:{label:'Work',sec:{ess:'The Essence of Your Work Fortune',grow:'How to Grow Your Work Fortune'},
+colorLine:{W:'When unsure, trust the choice you first felt you wanted to try.',R:'Chances go to those who raise their hand. Moving first is your weapon.',Y:'The wider your network, the wider your work opportunities.',B:'The more you solidify planning and records, the steadier your reputation.'},
+aff:{TE:'Job-change agents',HS:'Executive scouts',QL:'Skill courses',OL:'Online learning',SB:'Freelance',CC:'Career coaching',BT:'Planners',BK:'Specialist books'},
 birds:{
-canaly:{title:'The Coordinator Who Connects People',feat:['Reads the room and acts accordingly','Skilled at bridging people together','The one others turn to with requests'],essence:'Your career luck opens through working with others. Smoothing the team and building bridges earns recognition and the next opportunity.',grow:'Lift others up rather than chasing credit. Accumulated trust returns to you as nominations and promotions.'},
-condle:{title:'The Achiever Who Aims and Delivers',feat:['Works backward from the goal','Locks in at the decisive moment','Prefers work tied directly to results'],essence:'Your career luck leaps on decisive results. The more you pour into the crucial moments, the higher your standing climbs.',grow:'Trim your projects and concentrate resources on the single most important one. Avoiding jack-of-all-trades is what produces standout results.'},
-owl:{title:'The Specialist Who Builds Steadily',feat:['Acts only after deep understanding','Excels at steady, patient effort','Trusted for their expertise'],essence:'Your career luck grows through accumulated expertise. Those who dig deep into one field become irreplaceable.',grow:'Record what you learn and turn it into credentials and visible form. Expertise that can be seen raises your leverage and your worth.'},
-peac:{title:'The Presenter Who Captivates',feat:['Skilled at self-expression','Performs best in front of people','Knows how to leave an impression'],essence:'Your career luck is decided by how you present. Polish your delivery and your presence, and opportunities come to you.',grow:'Put your results into words and keep a stage to speak from. The brighter you polish the brand called you, the more calls you receive.'},
-phenix:{title:'The Late Bloomer Who Rises Again',feat:['Has known ups and downs','Never finished by one failure','Becomes great given time'],essence:'Your career luck blooms late. Lulls and setbacks are the run-up to a greater leap. Those who persist burst into bloom in the second half.',grow:'Do not be pulled around by short-term reviews; work backward from who you will be in five years. Continuing is the strongest career strategy.'}
+canaly:{title:'The Connector',feat:['Reads the room','Naturally bridges people','Excels when needed'],essence:'Your work success flows from human connection. Harmony-building brings recognition.',grow:'Lift others over yourself. Trust accumulates and returns as advancement.',aff:['TE','QL','BT']},
+condle:{title:'The Focused Achiever',feat:['Works backward from goals','Focuses in crucial moments','Pursues results-driven work'],essence:'Your work fortune peaks at critical moments. Full focus yields recognition.',grow:'Focus resources on what matters most. Depth over breadth creates breakthroughs.',aff:['HS','QL','SB']},
+owl:{title:'The Expert Builder',feat:['Understands deeply before acting','Masters steady progress','Trusted for expertise'],essence:'Your work fortune grows through expertise. Deep knowledge makes you irreplaceable.',grow:'Document learning and earn credentials. Visible expertise raises your value.',aff:['QL','BK','TE']},
+peac:{title:'The Compelling Communicator',feat:['Expresses naturally','Shines in the spotlight','Makes lasting impressions'],essence:'Your work fortune depends on presentation. Polish your delivery and opportunities find you.',grow:'Articulate results and share them. Polish your brand—opportunity follows.',aff:['SB','OL','CC']},
+phenix:{title:'The Late Bloomer',feat:['Has weathered ups and downs','Recovers from setbacks','Grows massively over time'],essence:'Your career matures slowly but grandly. Setbacks precede great leaps.',grow:'Plan five years ahead. Persistence is your ultimate career strategy.',aff:['CC','QL','TE']}
 }},
-love:{label:'Love',sec:{ess:'The nature of your love luck',grow:'How to grow it'},
-colorLine:{W:' The one who makes your heart skip is the sign of a true tie.',R:' Rather than waiting, take one step forward. Honesty moves hearts.',Y:' The seeds of encounters lie where people gather.',B:' Take it step by unhurried step, and trust will grow.'},
+love:{label:'Love',sec:{ess:'The Essence of Your Love Fortune',grow:'How to Grow Your Love Fortune'},
+colorLine:{W:'The person who clicks with you is the sign of a true connection.',R:'Rather than waiting, take a step yourself. Honesty moves hearts.',Y:'The seeds of new encounters lie where people gather.',B:'The more patiently you take each step, the more trust grows.'},
+aff:{MA:'Dating apps',KS:'Matchmaking',UR:'Compatibility readings',BE:'Beauty & spa',FA:'Fashion',DT:'Date spots',SM:'Self-improvement'},
 birds:{
-canaly:{title:'The Romantic Who Touches Hearts',feat:['Sensitive to a partner&rsquo;s feelings','A calming presence to be around','Blessed with good encounters'],essence:'Your love luck deepens through empathy. The gentleness with which you stay close to another&rsquo;s heart attracts a lasting bond.',grow:'Do not lose yourself by giving too much. When giving and receiving find their balance, the relationship matures.'},
-condle:{title:'The Passionate One-Heart',feat:['Goes straight ahead once in love','Sincerity over games','Closes the distance at the key moment'],essence:'Your love luck turns on one sincere push. Approach the one you have chosen with honesty, and their heart will be won.',grow:'Do not press too hard too fast. The step taken after reading their pace is the one that decides everything.'},
-owl:{title:'The Thoughtful Discerner',feat:['Observes a partner carefully','Trust built over time, not love at first sight','Closes the distance with care'],essence:'Your love luck grows through trust built over time. The one you take time to truly see becomes deeply bound to you.',grow:'Do not overthink until you cannot move. Once certain, the courage to say it aloud is what bears fruit.'},
-peac:{title:'The Radiant Charmer',feat:['Naturally draws people in','Shines brighter under attention','Leaves a strong first impression'],essence:'Your love luck opens through your radiance. Polishing yourself and letting your light show naturally invites good ties.',grow:'Show not only the outside but the quiet spaces within. Your unguarded side is what makes the bond real.'},
-phenix:{title:'The Devoted Soul That Burns Again',feat:['Has known love&rsquo;s ups and downs','Never finished by one heartbreak','Takes time to build true love'],essence:'Your love luck is the rebirth kind. Past partings and pauses are steps toward a deeper love. Take the long view, and a fated tie will come.',grow:'Do not drag the past with you; open your heart to the encounter before you. The more you have learned, the richer the next love becomes.'}
+canaly:{title:'The Empathic Romantic',feat:['Senses others\' feelings','Makes others feel safe','Blessed with connections'],essence:'Your love deepens through empathy. Your gentleness attracts lasting bonds.',grow:'Don\'t lose yourself by giving too much. When giving and receiving come into balance, the relationship matures.',aff:['MA','UR','BE']},
+condle:{title:'The Devoted Arrow',feat:['Loves with focus','Prefers sincerity to games','Bridges gaps decisively'],essence:'Your love moves on genuine commitment. Sincere boldness pierces hearts.',grow:'Pace yourself. Reading their speed wins the day.',aff:['KS','DT','UR']},
+owl:{title:'The Discerning Soul',feat:['Observes carefully','Builds on trust not attraction','Approaches steadily'],essence:'Your love grows through time-tested trust. Patience yields depth.',grow:'Don\'t overthink. When certain, speak—that courage brings results.',aff:['KS','UR','SM']},
+peac:{title:'The Enchanting Presence',feat:['Naturally magnetizing','Shines when noticed','Makes powerful first impressions'],essence:'Your love opens through presence. Polish yourself—good connections follow naturally.',grow:'Show both polish and authenticity. Real you transforms relationships.',aff:['BE','FA','MA']},
+phenix:{title:'The Phoenix Heart',feat:['Has loved and lost','Rises after heartbreak','Invests time in true love'],essence:'Your love regenerates. Past losses lead to deeper bonds. Destiny calls with patience.',grow:'Release the past. Each lesson enriches the next love.',aff:['UR','KS','SM']}
 }}
 };
-// ===== SHEIN lucky finds (by color / bird / common) =====
+var birdEnglishNames={'canaly':'canary','condle':'T','owl':'owl','peac':'peacock','phenix':'phenix'};
 var SHEIN={
 love:{
 color:{
@@ -446,39 +574,66 @@ common:[{name:'SHEIN New Customer Coupon',url:'https://onelink.shein.com/38/5sbv
 special:{}
 }
 };
-var cur={ed:'money',b:'owl',c:'Y',parity:null};
+var cur={ed:'money',b:'condle',c:'W',parity:null};
 
-// ===== Share on X =====
+// ===== X share =====
 var SITE_BASE='https://mamoridori.com';
-function shareX(){
+// Result-post images (R-*.webp) are mapped in each page under share/
+function currentShareData(){
 var bMeta=birdsMeta.filter(function(x){return x.key===cur.b;})[0];
 var cMeta=colorsMeta.filter(function(x){return x.key===cur.c;})[0];
 var name=cMeta.name+' '+bMeta.name;
-var text='My guardian bird is the "'+name+'"\n#Mamoridori @mamoridori_jp';
+var text='My guardian bird is "'+name+'"\n#Guardian Bird Divination @mamoridori_jp';
 var url=SITE_BASE+'/en/share/'+cur.b+'-'+cur.c+'.html?ed='+cur.ed;
-window.open('https://x.com/intent/post?text='+encodeURIComponent(text)+'&url='+encodeURIComponent(url),'_blank','noopener');
+return {text:text,url:url};
+}
+function shareFacebook(){
+var data=currentShareData();
+window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(data.url),'_blank','noopener');
+}
+function shareWhatsApp(){
+var data=currentShareData();
+window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(data.text+'\n'+data.url),'_blank','noopener');
+}
+function shareX(){
+var data=currentShareData();
+window.open('https://x.com/intent/post?text='+encodeURIComponent(data.text)+'&url='+encodeURIComponent(data.url),'_blank','noopener');
+}
+function copyShareLink(){
+var data=currentShareData();
+function done(){
+var el=document.getElementById('copyShareDone');
+if(el){el.style.display='block';setTimeout(function(){el.style.display='none';},1800);}
+}
+if(navigator.clipboard&&navigator.clipboard.writeText){
+navigator.clipboard.writeText(data.url).then(done,function(){fallbackCopy(data.url);done();});
+return;
+}
+fallbackCopy(data.url);
+done();
+}
+function fallbackCopy(url){
+var ta=document.createElement('textarea');
+ta.value=url;
+ta.setAttribute('readonly','');
+ta.style.position='fixed';
+ta.style.left='-9999px';
+document.body.appendChild(ta);
+ta.select();
+try{document.execCommand('copy');}catch(e){}
+document.body.removeChild(ta);
 }
 
-// ===== Reading engine (same as the Japanese version) =====
-var MON={
-1:{b:'owl',c:'R'},2:{b:'canaly',c:'W'},3:{b:'owl',c:'B'},4:{b:'canaly',c:'Y'},
-5:{b:'condle',c:'R'},6:{b:'phenix',c:'W'},7:{b:'canaly',c:'B'},8:{b:'peac',c:'Y'},
-9:{b:'phenix',c:'R'},10:{b:'owl',c:'W'},11:{b:'peac',c:'B'},12:{b:'owl',c:'Y'},
-13:{b:'canaly',c:'R'},14:{b:'peac',c:'W'},15:{b:'condle',c:'B'},16:{b:'condle',c:'Y'},
-17:{b:'peac',c:'R'},18:{b:'condle',c:'W'},19:{b:'phenix',c:'B'},20:{b:'phenix',c:'Y'}
+// ===== Result image download =====
+// bird+color -> English name mapping (matches GitHub filenames)
+var birdEnglishNames={
+'canaly':'canary',
+'condle':'T',
+'owl':'owl',
+'peac':'peacock',
+'phenix':'phenix'
 };
-function jdn(y,m,d){var a=Math.floor((14-m)/12),yy=y+4800-a,mm=m+12*a-3;return d+Math.floor((153*mm+2)/5)+365*yy+Math.floor(yy/4)-Math.floor(yy/100)+Math.floor(yy/400)-32045;}
-var ANCHOR_JDN=jdn(1972,1,12),ANCHOR_MON=18;
-function dateToMon(y,m,d){var diff=jdn(y,m,d)-ANCHOR_JDN;var idx=((diff%20)+20)%20;return ((ANCHOR_MON-1+idx)%20)+1;}
-function diagnose(){
-var y=parseInt(document.getElementById('yy').value,10),m=parseInt(document.getElementById('mm').value,10),d=parseInt(document.getElementById('dd').value,10);
-if(!y||!m||!d){alert('Please select your full date of birth.');return;}
-var mon=dateToMon(y,m,d);
-cur.b=MON[mon].b;cur.c=MON[mon].c;
-var st=parseInt(document.getElementById('strokes').value,10);
-cur.parity=(st>0)?(st%2===1?'odd':'even'):null;
-render();show('result');
-}
+var colorLetters={'W':'W','R':'R','Y':'Y','B':'B'};
 var popImageNames={
 'canaly':'C',
 'condle':'T',
@@ -486,6 +641,7 @@ var popImageNames={
 'peac':'K',
 'phenix':'P'
 };
+
 function downloadResultImage(){
 if(!cur.b||!cur.c){alert('Please complete the divination first.');return;}
 var birdEn=popImageNames[cur.b];
@@ -499,6 +655,29 @@ document.getElementById('modalOverlay').classList.add('active');
 }
 function closeModal(){
 document.getElementById('modalOverlay').classList.remove('active');
+}
+
+// ===== Diagnosis engine =====
+// type number (1-20) -> bird, color
+var MON={
+1:{b:'owl',c:'R'},2:{b:'canaly',c:'W'},3:{b:'owl',c:'B'},4:{b:'canaly',c:'Y'},
+5:{b:'condle',c:'R'},6:{b:'phenix',c:'W'},7:{b:'canaly',c:'B'},8:{b:'peac',c:'Y'},
+9:{b:'phenix',c:'R'},10:{b:'owl',c:'W'},11:{b:'peac',c:'B'},12:{b:'owl',c:'Y'},
+13:{b:'canaly',c:'R'},14:{b:'peac',c:'W'},15:{b:'condle',c:'B'},16:{b:'condle',c:'Y'},
+17:{b:'peac',c:'R'},18:{b:'condle',c:'W'},19:{b:'phenix',c:'B'},20:{b:'phenix',c:'Y'}
+};
+// date of birth -> type number. anchor: 1972/1/12 = 18
+function jdn(y,m,d){var a=Math.floor((14-m)/12),yy=y+4800-a,mm=m+12*a-3;return d+Math.floor((153*mm+2)/5)+365*yy+Math.floor(yy/4)-Math.floor(yy/100)+Math.floor(yy/400)-32045;}
+var ANCHOR_JDN=jdn(1972,1,12),ANCHOR_MON=18;
+// continuous-day method (Feb 29 counts as one day).
+function dateToMon(y,m,d){var diff=jdn(y,m,d)-ANCHOR_JDN;var idx=((diff%20)+20)%20;return ((ANCHOR_MON-1+idx)%20)+1;}
+function diagnose(){
+var y=parseInt(document.getElementById('yy').value,10),m=parseInt(document.getElementById('mm').value,10),d=parseInt(document.getElementById('dd').value,10);
+if(!y||!m||!d){alert('Please select your complete date of birth.');return;}
+var mon=dateToMon(y,m,d);
+cur.b=MON[mon].b;cur.c=MON[mon].c;
+cur.parity=null;
+render();show('result');
 }
 function show(id){document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active');});document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'instant'});}
 function itemRecommendation(section,p,bMeta,cMeta,ed){
@@ -549,18 +728,16 @@ var bMeta=birdsMeta.filter(function(x){return x.key===cur.b;})[0];
 var cMeta=colorsMeta.filter(function(x){return x.key===cur.c;})[0];
 var bd=ed.birds[cur.b];
 var name=cMeta.name+' '+bMeta.name;
-document.getElementById('edPill').textContent='Mamoridori \u2015 '+ed.label;
+document.getElementById('edPill').textContent='Guardian Bird Divination ― '+ed.label;
 document.getElementById('birdName').textContent=name;
-var featTitle=document.getElementById('featTitle');if(featTitle)featTitle.textContent=name;
-document.getElementById('birdType').textContent=cMeta.accent+' \u00B7 '+bd.title;
-var sa=document.getElementById('subAxis');
-if(cur.parity){sa.style.display='block';sa.innerHTML=(cur.parity==='odd')?'Your name has an <b>odd</b> number of letters \u2015 a sign of motion. Acting and reaching out opens your fortune.':'Your name has an <b>even</b> number of letters \u2015 a sign of stillness. Protecting and tending what you have steadies your fortune.';}else{sa.style.display='none';}
-var fl=document.getElementById('featList');if(fl){fl.innerHTML='';bd.feat.forEach(function(f){var li=document.createElement('li');li.innerHTML='<span class="ck">&#10003;</span>'+f;fl.appendChild(li);});}
-var essTitle=document.getElementById('essTitle');if(essTitle)essTitle.textContent=ed.sec.ess;
-var growTitle=document.getElementById('growTitle');if(growTitle)growTitle.textContent=ed.sec.grow;
-var essenceEl=document.getElementById('essence');if(essenceEl)essenceEl.innerHTML=bd.essence+ed.colorLine[cur.c];
-var growEl=document.getElementById('grow');if(growEl)growEl.innerHTML=bd.grow;
-// Lucky finds: color -> bird -> common
+document.getElementById('featTitle').textContent=name;
+document.getElementById('birdType').textContent=cMeta.accent+' \u2013 '+bd.title;
+var fl=document.getElementById('featList');fl.innerHTML='';
+bd.feat.forEach(function(f){var li=document.createElement('li');li.innerHTML='<span class="ck">&#10003;</span>'+f;fl.appendChild(li);});
+document.getElementById('essTitle').textContent=ed.sec.ess;
+document.getElementById('growTitle').textContent=ed.sec.grow;
+document.getElementById('essence').textContent=bd.essence+ed.colorLine[cur.c];
+document.getElementById('grow').textContent=bd.grow;
 var al=document.getElementById('affList');al.innerHTML='';
 var aff=SHEIN[cur.ed]||{color:{},bird:{},common:[],special:{}};
 var cItems=(aff.color&&aff.color[cur.c])||[],bItems=(aff.bird&&aff.bird[cur.b])||[],commonItems=aff.common||[],specialItems=(aff.special&&aff.special[cur.b])||[];
@@ -576,6 +753,7 @@ document.querySelectorAll('.chip').forEach(function(ch){ch.classList.remove('on'
 var sel=document.querySelector('.chip[data-id="'+cur.b+'-'+cur.c+'"]');if(sel)sel.classList.add('on');
 document.querySelectorAll('.edtab').forEach(function(t){t.classList.toggle('on',t.getAttribute('data-ed')===cur.ed);});
 }
+// edition tabs (top + result)
 ['edtabsTop','edtabsResult'].forEach(function(cid){
 var box=document.getElementById(cid);
 Object.keys(editions).forEach(function(ek){
@@ -584,22 +762,146 @@ t.onclick=function(){cur.ed=ek;render();};
 box.appendChild(t);
 });
 });
+// bird/color picker
 var picker=document.getElementById('picker');
 birdsMeta.forEach(function(b){
 var row=document.createElement('div');row.className='brow';
 var label=document.createElement('div');label.className='bn';label.textContent=b.name;
 var chips=document.createElement('div');chips.className='chips';
-colorsMeta.forEach(function(c){var chip=document.createElement('div');chip.className='chip';chip.style.background=c.hex;chip.title=c.name+' '+b.name;chip.setAttribute('data-id',b.key+'-'+c.key);chip.onclick=function(){cur.b=b.key;cur.c=c.key;render();};chips.appendChild(chip);});
+colorsMeta.forEach(function(c){var chip=document.createElement('div');chip.className='chip';chip.style.backgroundColor=c.hex;chip.title=c.name+' '+b.name;chip.setAttribute('data-id',b.key+'-'+c.key);var icon=document.createElement('img');icon.src=((location.pathname.indexOf('/en/share/')!==-1||location.pathname.indexOf('\\en\\share\\')!==-1)?((location.protocol==='file:')?'../../images/':'/images/'):'images/')+({'canaly':'C','condle':'T','owl':'F','peac':'K','phenix':'P'}[b.key]||b.key)+'-'+c.key+'.webp';icon.alt=c.name+' '+b.name;icon.onerror=function(){icon.style.display='none';};chip.appendChild(icon);chip.onclick=function(){cur.b=b.key;cur.c=c.key;render();};chips.appendChild(chip);});
 row.appendChild(label);row.appendChild(chips);picker.appendChild(row);
 });
-var yy=document.getElementById('yy'),mm=document.getElementById('mm'),dd=document.getElementById('dd');
-var o0=document.createElement('option');o0.value='';o0.textContent='----';yy.appendChild(o0);
-for(var y=2026;y>=1920;y--){var o=document.createElement('option');o.value=y;o.textContent=y;yy.appendChild(o);}
-var m0=document.createElement('option');m0.value='';m0.textContent='--';mm.appendChild(m0);
+// date dropdowns
+// already initialized by the small script just below the form.
+// re-initialize here as a safeguard against mid-update DOM/cache differences.
+if (typeof initDateDropdowns === 'function') {
+  initDateDropdowns();
+}
+
+function initCompatDateDropdowns(){
+var yy=document.getElementById('cyy'),mm=document.getElementById('cmm'),dd=document.getElementById('cdd');
+if(!yy||!mm||!dd||yy.getAttribute('data-ready'))return;
+yy.setAttribute('data-ready','1');
+var currentYear=new Date().getFullYear();
+for(var y=currentYear;y>=1920;y--){var oy=document.createElement('option');oy.value=y;oy.textContent=y;yy.appendChild(oy);}
 for(var m=1;m<=12;m++){var om=document.createElement('option');om.value=m;om.textContent=m;mm.appendChild(om);}
-var d0=document.createElement('option');d0.value='';d0.textContent='--';dd.appendChild(d0);
 for(var d=1;d<=31;d++){var od=document.createElement('option');od.value=d;od.textContent=d;dd.appendChild(od);}
-// Open a shared result directly (?r=bird-color&ed=theme)
+}
+
+var COMPAT_BIRD={
+'canaly-canaly':{score:82,kw:'Kindred voices',desc:'You understand each other quickly and often feel the same mood before words are needed. The bond stays bright when you make room for each person to lead sometimes.'},
+'canaly-condle':{score:74,kw:'Voice and wings',desc:'One brings sensitivity, the other brings decisive motion. This pairing works well when quick action is balanced with gentle listening.'},
+'canaly-owl':{score:68,kw:'Feeling and wisdom',desc:'Your rhythms differ, but that difference can widen both worlds. Slow explanations and honest reassurance help this bond deepen.'},
+'canaly-peac':{score:88,kw:'A blooming stage',desc:'Warmth and charm naturally rise between you. Together you bring out confidence, expression, and a little sparkle in ordinary days.'},
+'canaly-phenix':{score:76,kw:'A song of renewal',desc:'Tenderness meets resilience here. The relationship becomes stronger when both people honor past lessons without living inside them.'},
+'condle-condle':{score:70,kw:'Twin wings rising',desc:'Both of you know how to focus and move. It can be powerful, but avoid turning everything into a contest.'},
+'condle-owl':{score:85,kw:'Strategy and decision',desc:'A practical, capable match. One gathers insight while the other moves things forward, making this a strong pair for shared goals.'},
+'condle-peac':{score:72,kw:'Strength and radiance',desc:'Drive and charisma meet. The bond grows when admiration is expressed plainly and neither person tries to control the spotlight.'},
+'condle-phenix':{score:78,kw:'Unbroken wings',desc:'Both carry a quiet toughness. When you stop testing each other and start trusting the shared fire, the relationship becomes steady.'},
+'owl-owl':{score:80,kw:'Deep shared waters',desc:'A calm and thoughtful bond. You may not need many words, but affection should still be shown clearly and regularly.'},
+'owl-peac':{score:65,kw:'Moon and sun',desc:'The contrast is strong: quiet depth meets visible brilliance. Curiosity, not judgment, is the key to keeping the bond warm.'},
+'owl-phenix':{score:77,kw:'Wisdom and rebirth',desc:'Insight meets recovery. This pairing can become a safe place for growth when both people respect timing and emotional space.'},
+'peac-peac':{score:84,kw:'A brilliant bloom',desc:'A vivid, expressive bond. You inspire each other, though the relationship works best when both people share the stage generously.'},
+'peac-phenix':{score:79,kw:'Flame and plume',desc:'Beauty and renewal combine. This bond can encourage bold self-expression, especially after either person has been through change.'},
+'phenix-phenix':{score:73,kw:'A vow to rise',desc:'Both understand cycles of loss and return. The bond deepens when silence is not mistaken for distance and hope is spoken aloud.'}
+};
+var COLOR_ADJ={'W-W':8,'W-R':-4,'W-Y':5,'W-B':2,'R-R':4,'R-Y':6,'R-B':-6,'Y-Y':9,'Y-B':3,'B-B':7};
+var SPECIAL_AFFINITY={
+'owl-R_peac-B':'complement','owl-R_phenix-Y':'mirror','canaly-W_owl-Y':'complement','canaly-W_phenix-B':'mirror','owl-B_canaly-R':'complement','owl-B_condle-W':'mirror','owl-B_phenix-Y':'magnetic','canaly-Y_peac-W':'complement','canaly-Y_peac-R':'mirror','canaly-Y_phenix-B':'magnetic','condle-R_condle-B':'complement','condle-R_condle-Y':'mirror','condle-R_condle-W':'magnetic','phenix-W_condle-B':'mirror','phenix-W_condle-Y':'complement','phenix-W_peac-R':'magnetic','canaly-B_peac-W':'mirror','canaly-B_condle-Y':'magnetic','canaly-B_peac-R':'complement','peac-Y_canaly-R':'mirror','peac-Y_condle-B':'magnetic','peac-Y_condle-W':'complement','phenix-R_owl-Y':'mirror','phenix-R_peac-W':'magnetic','phenix-R_phenix-B':'complement','owl-W_peac-B':'mirror','owl-W_canaly-R':'magnetic','owl-W_phenix-Y':'complement','peac-B_owl-R':'complement','peac-B_owl-W':'mirror','peac-B_owl-Y':'magnetic','owl-Y_canaly-W':'complement','owl-Y_phenix-R':'mirror','owl-Y_peac-B':'magnetic','canaly-R_owl-B':'complement','canaly-R_peac-Y':'mirror','canaly-R_owl-W':'magnetic','peac-W_canaly-Y':'complement','peac-W_canaly-B':'mirror','peac-W_phenix-R':'magnetic','condle-B_condle-R':'complement','condle-B_phenix-W':'mirror','condle-B_peac-Y':'magnetic','condle-Y_condle-R':'mirror','condle-Y_phenix-W':'complement','condle-Y_canaly-B':'magnetic','peac-R_canaly-Y':'mirror','peac-R_phenix-W':'magnetic','peac-R_canaly-B':'complement','condle-W_owl-B':'mirror','condle-W_condle-R':'magnetic','condle-W_peac-Y':'complement','phenix-B_canaly-W':'mirror','phenix-B_canaly-Y':'magnetic','phenix-B_phenix-R':'complement','phenix-Y_owl-R':'mirror','phenix-Y_owl-B':'magnetic','phenix-Y_owl-W':'complement'};
+var SPECIAL_INFO={
+mirror:{label:'Mirror Wings',bonus:4,desc:'You recognize something familiar in each other. This makes trust easier, as long as you keep the relationship from becoming too predictable.'},
+magnetic:{label:'Magnetic Wings',bonus:8,desc:'There is a strong pull here. The connection can feel fated, so it helps to move with warmth and a little patience.'},
+complement:{label:'Complementary Wings',bonus:5,desc:'You carry qualities the other may be missing. Differences can become strength when both people treat them as gifts.'}
+};
+var compatResult=null,compatPickBird=null,compatPickColor=null;
+function colorAdj(c1,c2){var k1=c1+'-'+c2,k2=c2+'-'+c1;return COLOR_ADJ[k1]!==undefined?COLOR_ADJ[k1]:(COLOR_ADJ[k2]!==undefined?COLOR_ADJ[k2]:0);}
+function getCompatKey(b1,b2){if(b1===b2)return b1+'-'+b1;var pair=[b1,b2].sort().join('-');return COMPAT_BIRD[pair]?pair:(COMPAT_BIRD[b2+'-'+b1]?b2+'-'+b1:b1+'-'+b2);}
+function compatBirdImage(b,c){var codes={'canaly':'C','condle':'T','owl':'F','peac':'K','phenix':'P'};var base=(location.pathname.indexOf('/en/share/')!==-1||location.pathname.indexOf('\\en\\share\\')!==-1)?((location.protocol==='file:')?'../../images/':'/images/'):'/images/';return base+(codes[b]||b)+'-'+c+'.webp';}
+function switchCompatMode(mode){
+document.getElementById('compatBirthMode').style.display=(mode==='birth')?'':'none';
+document.getElementById('compatPickMode').style.display=(mode==='pick')?'':'none';
+document.getElementById('tabBirth').classList.toggle('on',mode==='birth');
+document.getElementById('tabPick').classList.toggle('on',mode==='pick');
+document.getElementById('compatResult').style.display='none';
+}
+function initCompatBirdGrid(){
+var grid=document.getElementById('compatBirdGrid');
+if(!grid||grid.getAttribute('data-ready'))return;
+grid.setAttribute('data-ready','1');
+birdsMeta.forEach(function(b){
+colorsMeta.forEach(function(c){
+var btn=document.createElement('button');
+btn.className='compat-bird-btn';
+btn.style.borderTop='3px solid '+c.hex;
+btn.innerHTML=c.name+'<br>'+b.name;
+btn.onclick=function(){
+document.querySelectorAll('.compat-bird-btn').forEach(function(x){x.classList.remove('on');});
+btn.classList.add('on');
+compatPickBird=b.key;compatPickColor=c.key;
+document.getElementById('compatPickSelected').style.display='';
+document.getElementById('compatPickLabel').textContent=c.name+' '+b.name;
+};
+grid.appendChild(btn);
+});
+});
+}
+function diagnoseCompat(){
+var y=parseInt(document.getElementById('cyy').value,10),m=parseInt(document.getElementById('cmm').value,10),d=parseInt(document.getElementById('cdd').value,10);
+if(!y||!m||!d){alert("Please select the other person's complete date of birth.");return;}
+var mon2=dateToMon(y,m,d);
+showCompatResult(MON[mon2].b,MON[mon2].c);
+}
+function diagnoseCompatPick(){
+if(!compatPickBird||!compatPickColor){alert("Please choose the other person's guardian bird type.");return;}
+showCompatResult(compatPickBird,compatPickColor);
+}
+function showCompatResult(otherB,otherC){
+var b2=otherB,c2=otherC;
+var spKey1=cur.b+'-'+cur.c+'_'+b2+'-'+c2,spKey2=b2+'-'+c2+'_'+cur.b+'-'+cur.c;
+var spType=SPECIAL_AFFINITY[spKey1]||SPECIAL_AFFINITY[spKey2]||null;
+var sp=spType?SPECIAL_INFO[spType]:null;
+var base=COMPAT_BIRD[getCompatKey(cur.b,b2)]||{score:72,kw:'Two different wings',desc:'You carry different gifts. The relationship grows when both people stay curious and make room for each other.'};
+var score=Math.min(100,Math.max(40,base.score+colorAdj(cur.c,c2)+(sp?sp.bonus:0)));
+var bMeta1=birdsMeta.filter(function(x){return x.key===cur.b;})[0],cMeta1=colorsMeta.filter(function(x){return x.key===cur.c;})[0];
+var bMeta2=birdsMeta.filter(function(x){return x.key===b2;})[0],cMeta2=colorsMeta.filter(function(x){return x.key===c2;})[0];
+var name1=cMeta1.name+' '+bMeta1.name,name2=cMeta2.name+' '+bMeta2.name;
+compatResult={score:score,kw:base.kw,desc:base.desc,name1:name1,name2:name2,b2:b2,c2:c2,sp:sp};
+document.getElementById('compatBirds').innerHTML=
+'<div class="compat-bird-chip"><img class="compat-bird-img" src="'+compatBirdImage(cur.b,cur.c)+'" alt="'+name1+'" onerror="this.style.opacity=.3"><div class="compat-bird-name">'+name1+'</div></div>'+
+'<div class="compat-heart">&#9829;</div>'+
+'<div class="compat-bird-chip"><img class="compat-bird-img" src="'+compatBirdImage(b2,c2)+'" alt="'+name2+'" onerror="this.style.opacity=.3"><div class="compat-bird-name">'+name2+'</div></div>';
+document.getElementById('compatFill').style.width=score+'%';
+var level=score>=90?'Excellent match':score>=80?'Very good match':score>=70?'Good match':score>=60?'Steady match':'Growth match';
+document.getElementById('compatScoreLabel').textContent=score+' / 100 - '+level;
+document.getElementById('compatKeyword').textContent='"'+base.kw+'"';
+document.getElementById('compatDesc').textContent=(sp?sp.label+': '+sp.desc+' ':'')+base.desc;
+var cr=document.getElementById('compatResult');
+cr.style.display='block';
+cr.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function shareCompat(){
+if(!compatResult)return;
+var text='Guardian Bird Compatibility\n'+compatResult.name1+' x '+compatResult.name2+'\n"'+compatResult.kw+'"\nCompatibility score: '+compatResult.score+'/100\n#GuardianBirdDivination';
+window.open('https://x.com/intent/post?text='+encodeURIComponent(text)+'&url='+encodeURIComponent(SITE_BASE+'/en/'),'_blank','noopener');
+}
+function shareCompatFacebook(){
+if(!compatResult)return;
+window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(SITE_BASE+'/en/'),'_blank','noopener');
+}
+function shareCompatWhatsApp(){
+if(!compatResult)return;
+var text='Guardian Bird Compatibility\n'+compatResult.name1+' x '+compatResult.name2+'\n"'+compatResult.kw+'"\nCompatibility score: '+compatResult.score+'/100\n'+SITE_BASE+'/en/';
+window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(text),'_blank','noopener');
+}
+function copyCompatLink(){
+var url=SITE_BASE+'/en/share/'+cur.b+'-'+cur.c+'.html?ed='+cur.ed;
+function done(){var el=document.getElementById('compatCopyDone');el.style.display='block';setTimeout(function(){el.style.display='none';},1800);}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done,function(){fallbackCopy(url);done();});return;}
+fallbackCopy(url);done();
+}
+initCompatDateDropdowns();
+initCompatBirdGrid();
+// if opened from a share URL (?r=bird-color&ed=theme), show the result directly
 (function(){
 var q=new URLSearchParams(location.search);
 var r=q.get('r')||'owl-Y',ed=q.get('ed');
@@ -608,14 +910,9 @@ if(r){var p=r.split('-');if(p.length===2&&editions.money.birds[p[0]]&&colorsMeta
 render();
 })();
 </script>
-<div class="modal-overlay" id="modalOverlay">
-<div class="modal-content">
-<button class="modal-close" onclick="closeModal()">&times;</button>
-<img class="modal-image" id="modalImage" alt="Guardian Bird Result">
-</div>
-</div>
 </body>
 </html>
+
 
 
 
